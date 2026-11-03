@@ -1,0 +1,1023 @@
+<!doctype html>
+<html lang="es"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
+<title>Actividades Adultos Mayores</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Open+Sans:wght@400;600;700;800&display=swap">
+<style>
+/* Layout: informativo en bandas de ancho completo (hero celeste, agenda, actividades, jornadas, contacto);
+   formulario en una sola columna angosta con tarjetas-opción grandes. Pensado para lectura cómoda (18px base). */
+:root {
+  --brand: #1fa3ec;
+  --brand-strong: #0f8bd6;
+  --brand-press: #0f72b0;
+  --brand-deep: #135d8e;
+  --brand-soft: #d4eefe;
+  --brand-tint: #ecf8ff;
+  --accent: #fbb912;
+  --accent-soft: #fdeaa3;
+  --text-strong: #111418;
+  --text-body: #1f2730;
+  --text-muted: #54616e;
+  --surface-page: #f6f9fb;
+  --surface-card: #ffffff;
+  --surface-tint: #ecf8ff;
+  --border: #e1e7ec;
+  --border-strong: #9aa6b2;
+  --focus-ring: #40b2f4;
+  --hl-bg: #0f8bd6;
+  --hl-fg: #ffffff;
+  --btn-bg: #0f72b0;
+  --btn-fg: #ffffff;
+  --link: #0f72b0;
+  --disc-bg: #0f8bd6;
+  --disc-fg: #ffffff;
+  --disc-soft-bg: #d4eefe;
+  --disc-soft-fg: #0f72b0;
+  --header-bg: rgba(255, 255, 255, .88);
+  --footer-bg: #143f5e;
+  --footer-fg: #d9ecf9;
+  --ok: #1d7a40;
+  --ok-soft: #e3f5ea;
+  --err: #c8322e;
+  --err-soft: #fdecec;
+  --shadow-brand: 0 8px 22px rgba(31, 163, 236, .28);
+  --shadow-soft: 0 6px 18px rgba(20, 63, 94, .10);
+  --shadow-card: 0 2px 8px rgba(20, 63, 94, .06);
+  --font-body: 'Open Sans', system-ui, sans-serif;
+  --font-display: 'Novecento', 'Barlow Condensed', 'Open Sans', system-ui, sans-serif;
+  --ease: cubic-bezier(.22, 1, .36, 1);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --brand-soft: #143f5e; --brand-tint: #0f2a3b;
+    --text-strong: #f2f7fb; --text-body: #d4dee8; --text-muted: #9fb2c2;
+    --surface-page: #0c1721; --surface-card: #122230; --surface-tint: #0f2a3b;
+    --border: #25394a; --border-strong: #4d6a82; --focus-ring: #74c5f6;
+    --btn-bg: #40b2f4; --btn-fg: #06202f; --link: #74c5f6;
+    --disc-soft-bg: #143f5e; --disc-soft-fg: #aadcfb;
+    --header-bg: rgba(12, 23, 33, .88);
+    --footer-bg: #0a1e2c; --footer-fg: #b9d3e6;
+    --ok: #5fd08a; --ok-soft: #123222; --err: #ff8a86; --err-soft: #3a1a1a;
+    --shadow-brand: 0 8px 22px rgba(31, 163, 236, .22);
+    --shadow-soft: 0 6px 18px rgba(0, 0, 0, .35); --shadow-card: 0 2px 8px rgba(0, 0, 0, .3);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --brand-soft: #143f5e; --brand-tint: #0f2a3b;
+  --text-strong: #f2f7fb; --text-body: #d4dee8; --text-muted: #9fb2c2;
+  --surface-page: #0c1721; --surface-card: #122230; --surface-tint: #0f2a3b;
+  --border: #25394a; --border-strong: #4d6a82; --focus-ring: #74c5f6;
+  --btn-bg: #40b2f4; --btn-fg: #06202f; --link: #74c5f6;
+  --disc-soft-bg: #143f5e; --disc-soft-fg: #aadcfb;
+  --header-bg: rgba(12, 23, 33, .88);
+  --footer-bg: #0a1e2c; --footer-fg: #b9d3e6;
+  --ok: #5fd08a; --ok-soft: #123222; --err: #ff8a86; --err-soft: #3a1a1a;
+  --shadow-brand: 0 8px 22px rgba(31, 163, 236, .22);
+  --shadow-soft: 0 6px 18px rgba(0, 0, 0, .35); --shadow-card: 0 2px 8px rgba(0, 0, 0, .3);
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--surface-page); color: var(--text-body);
+  font-family: var(--font-body); font-size: 18px; line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+  z-index: 30; background: var(--surface-card);
+}
+h1, h2, h3 { margin: 0; color: var(--text-strong); text-wrap: balance; }
+h1, h2 {
+  font-family: var(--font-display); font-weight: 800; text-transform: uppercase;
+  line-height: 1.02; letter-spacing: .01em;
+}
+h1 { font-size: clamp(46px, 9.5vw, 88px); }
+h2 { font-size: clamp(36px, 6vw, 56px); }
+h3 { font-size: 21px; line-height: 1.2; font-weight: 800; }
+p { margin: 0; }
+a { color: var(--link); }
+:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 3px; border-radius: 6px; }
+
+.ic { width: 1.25em; height: 1.25em; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.wrap {
+  width: 100%; max-width: 1200px; margin-inline: auto;
+  padding-left: max(24px, env(safe-area-inset-left, 0px));
+  padding-right: max(24px, env(safe-area-inset-right, 0px));
+}
+.band { padding-block: clamp(44px, 7vw, 72px); }
+.band.tint { background: var(--surface-tint); }
+.eyebrow {
+  font-size: 13px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--link);
+}
+.hl {
+  display: inline-block; background: var(--hl-bg); color: var(--hl-fg);
+  padding: 0 .2em; border-radius: 10px; line-height: 1.08;
+}
+.lede { font-size: 20px; color: var(--text-body); max-width: 60ch; }
+.sec-head { display: grid; gap: 14px; margin-bottom: 32px; }
+
+/* Header */
+.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+  background: var(--header-bg); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 72px; padding-block: 8px; }
+.lockup { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; min-width: 0; }
+.disc {
+  width: 48px; height: 48px; flex: none; border-radius: 50%;
+  display: grid; place-items: center; background: var(--disc-bg); color: var(--disc-fg);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--brand) 18%, transparent);
+}
+.disc .ic { width: 24px; height: 24px; }
+.disc.soft { background: var(--disc-soft-bg); color: var(--disc-soft-fg); box-shadow: none; }
+.lockup-t { display: grid; line-height: 1.1; min-width: 0; }
+.lockup-t small { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--link); }
+.lockup-t strong { font-size: 18px; font-weight: 800; color: var(--text-strong); text-transform: uppercase; }
+.lockup-t span { font-size: 11px; color: var(--text-muted); border-top: 1px solid var(--border); margin-top: 3px; padding-top: 3px; }
+
+/* Botones */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 56px; padding: 0 28px; border-radius: 999px; border: 2px solid transparent;
+  font: 700 18px/1.1 var(--font-body); text-decoration: none; cursor: pointer;
+  background: var(--btn-bg); color: var(--btn-fg); box-shadow: var(--shadow-brand);
+  transition: transform 140ms var(--ease), filter 140ms var(--ease);
+}
+.btn:hover { filter: brightness(.94); }
+.btn:active { transform: scale(.97); }
+.btn.ghost { background: transparent; color: var(--link); border-color: var(--brand); box-shadow: none; }
+.btn.sm { min-height: 44px; padding: 0 18px; font-size: 16px; }
+.btn.block { width: 100%; }
+.icon-btn {
+  width: 44px; height: 44px; flex: none; display: inline-grid; place-items: center; cursor: pointer;
+  border-radius: 50%; border: 2px solid var(--border-strong); background: var(--surface-card); color: var(--link);
+}
+.icon-btn:hover { border-color: var(--brand); }
+
+/* Hero */
+.hero { background: var(--surface-tint); position: relative; overflow: hidden; }
+.hero .wm { position: absolute; right: -40px; top: -20px; width: 520px; height: 520px; color: var(--brand); opacity: .06; pointer-events: none; }
+.hero .wrap { position: relative; display: grid; gap: 40px; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: center; }
+.hero-copy { display: grid; gap: 22px; min-width: 0; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 14px; }
+.panel { background: var(--surface-card); border: 4px solid var(--brand); border-radius: 18px; padding: 8px 22px; box-shadow: var(--shadow-soft); }
+.info-row { display: flex; align-items: center; gap: 16px; padding: 16px 0; }
+.info-row + .info-row { border-top: 1px solid var(--border); }
+.info-row strong { display: block; font-size: 19px; color: var(--text-strong); line-height: 1.2; }
+.info-row span { color: var(--text-muted); font-size: 16px; }
+
+/* Agenda semanal */
+.week { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px; }
+.day { background: var(--surface-card); border: 1px solid var(--border); border-radius: 18px; box-shadow: var(--shadow-card); overflow: hidden; }
+.day h3 { background: var(--hl-bg); color: var(--hl-fg); font-family: var(--font-display); font-size: 28px; text-transform: uppercase; letter-spacing: .02em; padding: 8px 18px; }
+.day ul { list-style: none; margin: 0; padding: 6px 18px 12px; }
+.day li { padding: 12px 0; display: grid; gap: 2px; }
+.day li + li { border-top: 1px solid var(--border); }
+.day time { font-weight: 800; color: var(--link); font-size: 17px; }
+.day a { color: var(--text-strong); font-weight: 600; text-decoration: none; line-height: 1.3; }
+.day a:hover { text-decoration: underline; }
+.day .none { color: var(--text-muted); padding: 14px 0 8px; }
+
+/* Actividades */
+.grp-title { display: flex; align-items: center; gap: 14px; margin: 44px 0 18px; }
+.grp-title:first-of-type { margin-top: 0; }
+.grp-title h3 { font-family: var(--font-display); font-size: 32px; text-transform: uppercase; letter-spacing: .02em; font-weight: 800; }
+.acts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 20px; }
+.card { background: var(--surface-card); border: 1px solid var(--border); border-radius: 18px; box-shadow: var(--shadow-card); }
+.act { padding: 24px; display: grid; gap: 18px; align-content: start; transition: transform 220ms var(--ease), box-shadow 220ms var(--ease); scroll-margin-top: 96px; }
+.act:hover { transform: translateY(-3px); box-shadow: var(--shadow-soft); }
+.act-head { display: flex; gap: 16px; align-items: flex-start; }
+.act-head p { color: var(--text-muted); font-size: 16px; margin-top: 6px; }
+.facts { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.facts li { display: flex; gap: 12px; align-items: flex-start; }
+.facts .ic { margin-top: 3px; color: var(--link); }
+.who { border-top: 1px solid var(--border); padding-top: 16px; display: grid; gap: 12px; }
+.who-t { font-size: 13px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--text-muted); }
+.person { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; }
+.person-n { flex: 1 1 100%; font-weight: 700; color: var(--text-strong); line-height: 1.2; }
+.person-n small { display: block; font-weight: 400; color: var(--text-muted); font-size: 14px; }
+.tel { font-weight: 800; font-size: 19px; color: var(--text-strong); font-variant-numeric: tabular-nums; letter-spacing: .01em; }
+.wa { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 2px solid var(--brand); color: var(--link); font-weight: 700; font-size: 16px; text-decoration: none; }
+.wa:hover { background: var(--brand-soft); }
+
+/* Jornadas */
+.months { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 20px; }
+.month { padding: 22px 24px 8px; }
+.month h3 { font-family: var(--font-display); font-size: 30px; text-transform: uppercase; letter-spacing: .02em; font-weight: 800; color: var(--link); }
+.month ul { list-style: none; margin: 10px 0 0; padding: 0; }
+.month li { display: grid; grid-template-columns: 62px minmax(0, 1fr); gap: 14px; padding: 14px 0; }
+.month li + li { border-top: 1px solid var(--border); }
+.chip { align-self: start; text-align: center; background: var(--brand-soft); color: var(--disc-soft-fg); border-radius: 12px; padding: 6px 4px; font-weight: 800; font-size: 14px; line-height: 1.15; text-transform: uppercase; letter-spacing: .03em; }
+.chip b { display: block; font-size: 22px; letter-spacing: 0; }
+.month li strong { color: var(--text-strong); display: block; line-height: 1.25; }
+.month li span { color: var(--text-muted); font-size: 16px; display: block; margin-top: 2px; }
+
+/* Pasos */
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 20px; list-style: none; padding: 0; margin: 0; counter-reset: s; }
+.steps li { counter-increment: s; background: var(--surface-card); border: 1px solid var(--border); border-radius: 18px; padding: 24px; display: grid; gap: 10px; box-shadow: var(--shadow-card); }
+.steps li::before { content: counter(s); width: 44px; height: 44px; border-radius: 50%; background: var(--disc-bg); color: #fff; display: grid; place-items: center; font: 800 26px var(--font-display); }
+.steps p { color: var(--text-muted); font-size: 17px; }
+
+/* Contacto */
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 18px; }
+.c-item { display: flex; gap: 16px; align-items: flex-start; padding: 22px; }
+.c-item > div { min-width: 0; display: grid; gap: 4px; }
+.c-item small { font-size: 13px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--text-muted); }
+.c-item strong { overflow-wrap: anywhere; color: var(--text-strong); }
+
+.foot { background: var(--footer-bg); color: var(--footer-fg); padding-block: 40px; font-size: 16px; }
+.foot .wrap { display: grid; gap: 8px; }
+.foot strong { color: #fff; font-family: var(--font-display); font-size: 26px; text-transform: uppercase; letter-spacing: .03em; }
+
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.toast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--text-strong); color: var(--surface-page); padding: 12px 22px; border-radius: 999px; font-weight: 700; z-index: 40; box-shadow: var(--shadow-soft); }
+
+@media (max-width: 860px) {
+  .hero .wrap { grid-template-columns: minmax(0, 1fr); }
+  .top .btn { min-height: 46px; padding: 0 18px; font-size: 16px; }
+}
+@media (max-width: 480px) {
+  .lockup-t span { display: none; }
+  .top .btn .lbl-long { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+
+/* ---- Versión compacta: menos espacio vertical, mismo contenido ---- */
+.band { padding-block: clamp(26px, 4vw, 44px); }
+.sec-head { gap: 8px; margin-bottom: 18px; }
+h1 { font-size: clamp(40px, 8vw, 68px); }
+h2 { font-size: clamp(30px, 5vw, 44px); }
+.lede { font-size: 19px; }
+.hero .wrap { gap: 24px; }
+.hero-copy { gap: 14px; }
+.info-row { padding: 10px 0; }
+.day h3 { font-size: 24px; padding: 6px 16px; }
+.day li { padding: 8px 0; }
+.grp-title { margin: 26px 0 12px; }
+.acts, .months { gap: 14px; }
+.act { padding: 18px; gap: 12px; }
+.act-head p { margin-top: 2px; }
+.facts { gap: 6px; }
+.who { padding-top: 10px; gap: 8px; }
+.person-n { flex: 1 1 150px; }
+.month { padding: 14px 20px 4px; }
+.month summary, .tl-m summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.month summary::-webkit-details-marker, .tl-m summary::-webkit-details-marker { display: none; }
+.month summary .ic, .tl-m summary .ic { color: var(--link); transition: transform 200ms var(--ease); }
+details[open] > summary .ic { transform: rotate(180deg); }
+.month h3 { font-size: 26px; }
+.month ul { margin: 4px 0 0; }
+.month li { padding: 9px 0; grid-template-columns: 56px minmax(0, 1fr); }
+.chip b { font-size: 19px; }
+.steps { gap: 14px; }
+.steps li { padding: 16px 18px; gap: 6px; }
+.steps li::before { width: 36px; height: 36px; font-size: 22px; }
+.contact-grid { gap: 12px; }
+.c-item { padding: 14px 16px; }
+.foot { padding-block: 24px; }
+@media (max-width: 700px) {
+  .act { padding: 14px; }
+  .band { padding-block: 22px; }
+  .top .wrap { min-height: 64px; }
+}
+
+/* Variante B. Layout: hero celeste a sangre con título invertido, barra de datos que monta sobre el hero,
+   actividades como "boletos" (bloque de día y hora a la izquierda) con filtro por día, línea de tiempo vertical
+   para las jornadas y banda oscura para pasos y contacto. Formulario por pasos, una pantalla a la vez. */
+:root { --hero-bg: #0f8bd6; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --hero-bg: #135d8e; } }
+:root[data-theme="dark"] { --hero-bg: #135d8e; }
+
+.on-dark {
+  --text-strong: #ffffff; --text-body: #e6f2fb; --text-muted: #b9d3e6; --link: #aadcfb;
+  --border: #2b5a7c; --border-strong: #6fa3c7; --surface-card: #0f3250; --brand: #74c5f6;
+  --brand-soft: #1b5278; --disc-bg: #1fa3ec; --disc-fg: #ffffff; --focus-ring: #aadcfb;
+  --btn-bg: #ffffff; --btn-fg: #0f4a73;
+  background: var(--footer-bg); color: var(--text-body);
+}
+
+.hero2 { background: var(--hero-bg); color: #fff; padding-block: clamp(48px, 8vw, 88px) clamp(76px, 10vw, 120px); position: relative; overflow: hidden; }
+.hero2 .wm { position: absolute; right: -60px; bottom: -80px; width: 560px; height: 560px; color: #fff; opacity: .07; pointer-events: none; }
+.hero2 .wrap { position: relative; display: grid; gap: 24px; }
+.hero2 h1, .hero2 .eyebrow { color: #fff; }
+.hero2 h1 { max-width: 14ch; }
+.hero2 .hl { background: #fff; color: var(--hero-bg); }
+.hero2 .eyebrow { opacity: .92; }
+.hero2 .lede { color: #fff; font-weight: 700; max-width: 52ch; }
+.hero2 .btn { background: #fff; color: #0f4a73; box-shadow: 0 8px 22px rgba(0, 0, 0, .18); }
+.hero2 .btn.ghost { background: transparent; color: #fff; border-color: #fff; box-shadow: none; }
+
+.stats { margin-top: -56px; position: relative; z-index: 2; }
+.stats .wrap { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; }
+.stat { display: flex; align-items: center; gap: 16px; padding: 18px 22px; box-shadow: var(--shadow-soft); }
+.stat strong { display: block; font-size: 19px; line-height: 1.2; color: var(--text-strong); }
+.stat span { color: var(--text-muted); font-size: 16px; }
+
+.filters { display: flex; flex-wrap: wrap; gap: 10px; margin: 8px 0 30px; }
+.filters button { min-height: 48px; padding: 0 22px; border-radius: 999px; border: 2px solid var(--border-strong); background: var(--surface-card); color: var(--text-strong); font: 700 17px var(--font-body); cursor: pointer; }
+.filters button[aria-pressed=true] { background: var(--btn-bg); color: var(--btn-fg); border-color: var(--btn-bg); }
+.sec-group { margin-bottom: 40px; }
+.sec-group > h3 { display: flex; align-items: center; gap: 14px; font-family: var(--font-display); font-size: 30px; text-transform: uppercase; letter-spacing: .02em; margin-bottom: 18px; }
+.tickets { display: grid; gap: 16px; }
+.ticket { display: grid; grid-template-columns: 160px minmax(0, 1fr); background: var(--surface-card); border: 1px solid var(--border); border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-card); scroll-margin-top: 96px; transition: transform 220ms var(--ease), box-shadow 220ms var(--ease); }
+.ticket:hover { transform: translateY(-3px); box-shadow: var(--shadow-soft); }
+.t-when { background: var(--hl-bg); color: #fff; display: grid; align-content: center; justify-items: center; text-align: center; gap: 6px; padding: 20px 12px; font-family: var(--font-display); text-transform: uppercase; }
+.t-when b { font-size: 36px; line-height: .95; font-weight: 800; letter-spacing: .02em; display: grid; }
+.t-when b.multi { font-size: 28px; }
+.t-when i { font-style: normal; font-size: 24px; font-weight: 700; border-top: 2px solid rgba(255, 255, 255, .5); padding-top: 8px; }
+.t-body { padding: 22px 26px; display: grid; gap: 14px; min-width: 0; }
+.t-top { display: flex; gap: 16px; align-items: flex-start; }
+.t-top p { color: var(--text-muted); font-size: 16px; margin-top: 4px; }
+.t-meta { display: flex; flex-wrap: wrap; gap: 8px 26px; }
+.t-meta span { display: inline-flex; align-items: center; gap: 10px; }
+.t-meta .ic { color: var(--link); }
+.people { display: flex; flex-wrap: wrap; gap: 14px 36px; border-top: 1px solid var(--border); padding-top: 14px; }
+.people .person { flex: 0 1 auto; }
+.t-cta { justify-self: start; }
+
+.tl { position: relative; margin-left: 12px; padding-left: 36px; border-left: 4px solid var(--brand); display: grid; gap: 36px; }
+.tl-m { position: relative; }
+.tl-m::before { content: ""; position: absolute; left: -50px; top: 6px; width: 20px; height: 20px; border-radius: 50%; background: var(--surface-page); border: 5px solid var(--hl-bg); }
+.tl-m h3 { font-family: var(--font-display); font-size: 34px; text-transform: uppercase; letter-spacing: .02em; color: var(--link); margin-bottom: 8px; }
+.tl-m ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 4px 36px; }
+.tl-m li { display: grid; grid-template-columns: 62px minmax(0, 1fr); gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+.tl-m li strong { color: var(--text-strong); display: block; line-height: 1.25; }
+.tl-m li span { color: var(--text-muted); font-size: 16px; display: block; margin-top: 2px; }
+
+.band.on-dark .steps li { background: var(--surface-card); box-shadow: none; }
+.band.on-dark .eyebrow { color: #aadcfb; }
+.band.on-dark h2 { color: #fff; }
+.band.on-dark .hl { background: #fff; color: #0f4a73; }
+.band.on-dark .btn { background: #fff; color: #0f4a73; }
+.contact-band { border-top: 1px solid var(--border); }
+.contact-band .card { background: var(--surface-card); }
+
+@media (max-width: 700px) {
+  .ticket { grid-template-columns: minmax(0, 1fr); }
+  .t-when { grid-auto-flow: column; justify-content: center; align-items: center; gap: 18px; padding: 14px; }
+  .t-when b, .t-when b.multi { grid-auto-flow: column; gap: 10px; font-size: 28px; }
+  .t-when i { border-top: 0; border-left: 2px solid rgba(255, 255, 255, .5); padding: 0 0 0 18px; }
+  .tl { padding-left: 26px; margin-left: 8px; }
+  .tl-m::before { left: -40px; }
+}
+
+/* ---- compacto ---- */
+.hero2 { padding-block: clamp(30px, 5vw, 52px) clamp(60px, 8vw, 84px); }
+.hero2 .wrap { gap: 14px; }
+.stats { margin-top: -40px; }
+.stat { padding: 12px 18px; }
+.filters { margin: 4px 0 18px; }
+.sec-group { margin-bottom: 22px; }
+.sec-group > h3 { font-size: 26px; margin-bottom: 12px; }
+.tickets { gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 540px), 1fr)); }
+.ticket { grid-template-columns: 124px minmax(0, 1fr); }
+.t-when { padding: 12px 8px; }
+.t-when b { font-size: 30px; }
+.t-when b.multi { font-size: 23px; }
+.t-when i { font-size: 21px; padding-top: 6px; }
+.t-body { padding: 14px 18px; gap: 8px; }
+.people { padding-top: 8px; gap: 8px 24px; }
+.tl { gap: 18px; }
+.tl-m h3 { font-size: 28px; margin-bottom: 2px; }
+.tl-m li { padding: 8px 0; }
+@media (max-width: 700px) {
+  .ticket { grid-template-columns: minmax(0, 1fr); }
+  .t-when b, .t-when b.multi { font-size: 24px; }
+  .t-body { padding: 12px 14px; }
+}
+
+.form-wrap { max-width: 820px; padding-bottom: 56px; }
+.h1-s { font-size: clamp(40px, 8vw, 64px); }
+.h2-s { font-family: var(--font-display); font-weight: 800; text-transform: uppercase; font-size: clamp(30px, 5vw, 40px); letter-spacing: .02em; }
+.stepper { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; padding: 0; margin: 0 0 32px; }
+.stepper li { display: inline-flex; align-items: center; gap: 10px; padding: 6px 16px 6px 6px; border-radius: 999px; border: 2px solid var(--border); color: var(--text-muted); font-weight: 700; font-size: 16px; background: var(--surface-card); }
+.stepper li span { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: var(--border); color: var(--text-body); font: 800 20px var(--font-display); }
+.stepper li.on { border-color: var(--brand); color: var(--text-strong); }
+.stepper li.on span { background: var(--disc-bg); color: #fff; }
+
+.pick { border: 0; padding: 0; margin: 0; min-width: 0; }
+.pick legend { font-weight: 800; font-size: 22px; color: var(--text-strong); margin-bottom: 8px; padding: 0; }
+.opt-grp { margin: 26px 0 12px; font-size: 13px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--text-muted); }
+.opts { display: grid; gap: 12px; }
+.opt { position: relative; display: block; cursor: pointer; }
+.opt input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.opt-body { display: flex; align-items: center; gap: 16px; padding: 16px 18px; background: var(--surface-card); border: 2px solid var(--border); border-radius: 18px; box-shadow: var(--shadow-card); transition: transform 140ms var(--ease), border-color 140ms var(--ease); }
+.opt:hover .opt-body { border-color: var(--brand); }
+.opt-t { display: grid; gap: 2px; min-width: 0; flex: 1; }
+.opt-t strong { color: var(--text-strong); line-height: 1.25; }
+.opt-t span { color: var(--text-muted); font-size: 16px; }
+.tick { width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--border-strong); display: grid; place-items: center; color: transparent; flex: none; }
+.opt input:checked + .opt-body { border: 4px solid var(--brand); padding: 14px 16px; background: var(--surface-tint); }
+.opt input:checked + .opt-body .tick { background: var(--disc-bg); border-color: var(--disc-bg); color: #fff; }
+.opt input:focus-visible + .opt-body { outline: 3px solid var(--focus-ring); outline-offset: 3px; }
+.opt .disc { width: 44px; height: 44px; }
+
+#paso2 { margin-top: 36px; display: grid; gap: 32px; }
+.info { padding: 24px; display: grid; gap: 16px; border: 4px solid var(--brand); }
+.info h2 { font-size: clamp(28px, 5vw, 38px); }
+.info .who { padding-top: 14px; }
+
+.fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 18px 0 28px; }
+.field { grid-column: 1 / -1; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.field.half { grid-column: auto; }
+.field label, label.check { font-weight: 700; color: var(--text-strong); }
+.hint { color: var(--text-muted); font-size: 15px; }
+input[type=text], input:not([type]), input[type=tel], textarea {
+  width: 100%; min-height: 56px; font: inherit; font-size: 18px; padding: 12px 16px;
+  background: var(--surface-card); color: var(--text-strong);
+  border: 2px solid var(--border-strong); border-radius: 12px;
+}
+textarea { resize: vertical; min-height: 96px; }
+input:focus-visible, textarea:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 1px; border-color: var(--brand); }
+.field.bad input, .field.bad textarea { border-color: var(--err); background: var(--err-soft); }
+.err, .field-err { color: var(--err); font-weight: 700; font-size: 16px; }
+.field-err { margin-top: 12px; }
+.check { display: flex; align-items: flex-start; gap: 14px; grid-column: 1 / -1; cursor: pointer; font-weight: 600; }
+.check input { width: 28px; height: 28px; flex: none; margin: 2px 0 0; accent-color: var(--btn-bg); }
+.field .check { font-weight: 600; }
+
+.done { padding: 28px; display: grid; gap: 18px; border: 4px solid var(--brand); }
+.done .disc { width: 56px; height: 56px; }
+.sum { margin: 0; display: grid; grid-template-columns: minmax(0, 170px) minmax(0, 1fr); gap: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.sum dt, .sum dd { margin: 0; padding: 12px 16px; }
+.sum dt { background: var(--surface-tint); font-weight: 700; color: var(--text-muted); font-size: 16px; }
+.sum dd { font-weight: 600; color: var(--text-strong); overflow-wrap: anywhere; }
+.sum dt:not(:first-of-type), .sum dd:not(:first-of-type) { border-top: 1px solid var(--border); }
+.send { display: grid; gap: 12px; }
+.send .btn { width: 100%; text-align: center; }
+.alt { color: var(--text-muted); font-size: 16px; }
+#msg { min-height: 180px; font-size: 16px; }
+.row-btns { display: flex; flex-wrap: wrap; gap: 12px; }
+.small-note { margin-top: 36px; color: var(--text-muted); }
+.btn[type=submit] { margin-top: 4px; }
+
+@media (max-width: 560px) {
+  .fields { grid-template-columns: minmax(0, 1fr); }
+  .field.half { grid-column: 1 / -1; }
+  .sum { grid-template-columns: minmax(0, 1fr); }
+  .sum dt { padding-bottom: 4px; }
+  .sum dd { padding-top: 4px; border-top: 0 !important; }
+}
+
+/* ---- compacto ---- */
+.stepper { margin-bottom: 18px; }
+.opt-grp { margin: 16px 0 8px; }
+.opts { gap: 8px; }
+.opt-body { padding: 10px 14px; }
+.opt input:checked + .opt-body { padding: 8px 12px; }
+#paso2 { margin-top: 18px; gap: 18px; }
+.info { padding: 16px 20px; gap: 10px; }
+.info .who { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); column-gap: 24px; }
+.info .who-t { grid-column: 1 / -1; }
+.fields { gap: 14px 18px; margin: 10px 0 18px; }
+.field { gap: 4px; }
+.hint { font-size: 14px; }
+input[type=text], input:not([type]), input[type=tel], textarea { min-height: 50px; padding: 9px 14px; }
+textarea { min-height: 72px; }
+.check { gap: 12px; }
+.done { padding: 20px; gap: 12px; }
+#msg { min-height: 120px; }
+.small-note { margin-top: 20px; }
+.form-wrap { padding-bottom: 28px; }
+
+/* Formulario B: por pasos, una pantalla a la vez. Barra de progreso en segmentos y tarjetas-boleto para elegir. */
+.fhero { background: var(--hero-bg); color: #fff; padding-block: 36px 40px; }
+.fhero .wrap { max-width: 820px; display: grid; gap: 14px; }
+.fhero h1, .fhero .eyebrow, .fhero .lede { color: #fff; }
+.fhero .hl { background: #fff; color: var(--hero-bg); }
+.fhero .lede { font-weight: 700; }
+.form-wrap { padding-top: 28px; }
+
+.stepper { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-bottom: 30px; }
+.stepper li { display: grid; gap: 8px; padding: 0; border: 0; border-radius: 0; background: none; font-size: 15px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+.stepper li::before { content: ""; height: 10px; border-radius: 999px; background: var(--border); }
+.stepper li.on::before { background: var(--brand); }
+.stepper li.on { border: 0; }
+.stepper li span { display: none; }
+
+.opts { grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
+.tile { position: relative; display: block; cursor: pointer; }
+.tile input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.tile-body { display: grid; grid-template-columns: 96px minmax(0, 1fr); overflow: hidden; background: var(--surface-card); border: 2px solid var(--border); border-radius: 18px; box-shadow: var(--shadow-card); min-height: 108px; transition: transform 140ms var(--ease), border-color 140ms var(--ease); }
+.tile:hover .tile-body { border-color: var(--brand); transform: translateY(-2px); }
+.tile-when { background: var(--hl-bg); color: #fff; display: grid; align-content: center; justify-items: center; text-align: center; gap: 2px; padding: 10px 6px; font-family: var(--font-display); text-transform: uppercase; }
+.tile-when b { font-size: 28px; line-height: .95; font-weight: 800; display: grid; }
+.tile-when b.multi { font-size: 21px; }
+.tile-when i { font-style: normal; font-size: 19px; font-weight: 700; }
+.tile-t { display: grid; gap: 3px; padding: 14px 16px; align-content: center; min-width: 0; }
+.tile-t strong { color: var(--text-strong); line-height: 1.25; }
+.tile-t span { color: var(--text-muted); font-size: 16px; }
+.tile input:focus-visible + .tile-body { outline: 3px solid var(--focus-ring); outline-offset: 3px; }
+.tile input:checked + .tile-body { border-color: var(--brand); box-shadow: 0 0 0 3px var(--brand); background: var(--surface-tint); }
+
+.info { background: var(--hero-bg); border: 0; color: #fff; --text-strong: #fff; --text-muted: #d9ecf9; --link: #fff; --border: rgba(255, 255, 255, .3); --border-strong: #fff; --surface-card: #0f3f63; --btn-bg: #fff; --btn-fg: #0f4a73; --disc-bg: #fff; --disc-fg: #0f4a73; }
+.info .eyebrow, .info h2, .info .facts .ic { color: #fff; }
+.info .wa { color: #fff; border-color: #fff; }
+.info .wa:hover { background: rgba(255, 255, 255, .15); }
+.info .icon-btn { background: transparent; color: #fff; }
+.info #change { background: #fff; color: #0f4a73; border-color: #fff; justify-self: start; }
+.done .disc { margin-bottom: 4px; }
+
+/* ---- compacto ---- */
+.fhero { padding-block: 22px 26px; }
+.fhero .wrap { gap: 8px; }
+.form-wrap { padding-top: 18px; }
+.tile-body { min-height: 84px; grid-template-columns: 88px minmax(0, 1fr); }
+.tile-when b { font-size: 24px; }
+.tile-when b.multi { font-size: 19px; }
+.tile-when i { font-size: 17px; }
+.tile-t { padding: 10px 14px; }
+
+</style></head><body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol><symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></symbol><symbol id="i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol><symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol><symbol id="i-pulse" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></symbol><symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></symbol><symbol id="i-palette" viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></symbol><symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12"/><path d="M20 4 8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8 20 20"/></symbol><symbol id="i-bulb" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></symbol><symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol><symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol><symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol><symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol><symbol id="i-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol><symbol id="i-facebook" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol><symbol id="i-instagram" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></symbol></defs></svg>
+<div id="view-home"><header class="top"><div class="wrap">
+  <a class="lockup" href="#inicio" aria-label="Dirección de Adultos Mayores, Gobierno de Esquina">
+    <span class="disc"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-users"/></svg></span>
+    <span class="lockup-t"><small>Dirección de</small><strong>Adultos Mayores</strong><span>Gobierno de Esquina</span></span>
+  </a>
+  <a class="btn" href="#inscripcion">Inscribirme<span class="lbl-long">&nbsp;ahora</span> <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
+</div></header>
+
+<main id="inicio">
+<section class="hero2">
+  <svg class="wm" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+  <div class="wrap">
+    <p class="eyebrow">Dirección de Adultos Mayores · Esquina, Corrientes</p>
+    <h1>Vení a <span class="hl">compartir</span> y moverte</h1>
+    <p class="lede">Talleres, gimnasia y encuentros todas las semanas en los barrios de Esquina. Elegí la tuya e inscribite en un minuto.</p>
+    <div class="hero-cta"><a class="btn" href="#inscripcion">Inscribirme <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a><a class="btn ghost" href="#actividades">Ver actividades</a></div>
+  </div>
+</section>
+
+<section class="stats" aria-label="Resumen"><div class="wrap">
+  <div class="card stat"><span class="disc"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-pulse"/></svg></span><div><strong>9 actividades por semana</strong><span>Talleres, gimnasia, pintura y más</span></div></div>
+  <div class="card stat"><span class="disc"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg></span><div><strong>7 lugares de encuentro</strong><span>Barrios, Plaza Pescio y Hogar</span></div></div>
+  <div class="card stat"><span class="disc"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-calendar"/></svg></span><div><strong>De lunes a viernes</strong><span>Todo el año</span></div></div>
+</div></section>
+
+<section class="band" id="actividades">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Actividades anuales</p><h2>Elegí tu <span class="hl">día</span></h2>
+      <p class="lede">Filtrá por día de la semana y escribile por WhatsApp a quien coordina, o inscribite desde el botón de cada actividad.</p></div>
+    <div class="filters" role="group" aria-label="Filtrar por día"><button type="button" data-f="todos" aria-pressed="true">Todos los días</button><button type="button" data-f="lunes" aria-pressed="false">Lunes</button><button type="button" data-f="martes" aria-pressed="false">Martes</button><button type="button" data-f="miercoles" aria-pressed="false">Miércoles</button><button type="button" data-f="viernes" aria-pressed="false">Viernes</button></div>
+    <div class="sec-group"><h3><span class="disc soft"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-scissors"/></svg></span>Manualidades en los barrios</h3><div class="tickets">
+<article class="ticket" id="santa-catalina" data-dias="martes">
+  <div class="t-when"><b class=""><span>Mar</span></b><i>16 hs</i></div>
+  <div class="t-body">
+    <div class="t-top"><span class="disc soft"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-scissors"/></svg></span><div><h3>Manualidades en Santa Catalina</h3><p>Un encuentro semanal para crear con las manos y compartir con los vecinos del barrio.</p></div></div>
+    <div class="t-meta"><span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>Salón de la Capilla Santa Catalina</span><span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-users"/></svg>Suelen sumarse unas 20 personas</span></div>
+    <div class="people"><div class="person"><div class="person-n">Silvia Villalba<small>Coordinadora</small></div><span class="tel">3777-632188</span><button type="button" class="icon-btn" data-copy="3777-632188" aria-label="Copiar el teléfono de Silvia Villalba"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-copy"/></svg></button><a class="wa" href="https://wa.me/5493777632188" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chat"/></svg> WhatsApp</a></div><div class="person"><div class="person-n">Ezequiel Gimenez<small>Coordinador</small></div><span class="tel">3777-739097</span><button type="button" class="icon-btn" data-copy="3777-739097" aria-label="Copiar el teléfono de Ezequiel Gimenez"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-copy"/></svg></button><a class="wa" href="https://wa.me/5493777739097" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chat"/></svg> WhatsApp</a></div></div>
+    <a class="btn t-cta" href="#inscripcion-santa-catalina">Inscribirme <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
+  </div>
+</article>
+<article class="ticket" id="san-antonio" data-dias="miercoles">
+  <div class="t-when"><b class=""><span>Mié</span></b><i>16 hs</i></div>
+  <div class="t-body">
+    <div class="t-top"><span class="disc soft"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-scissors"/></svg></span><div><h3>Manualidades en San Antonio</h3><p>Taller de manualidades para hacer, aprender y charlar en buena compañía.</p></div></div>
+    <div class="t-meta"><span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>PROAME San Antonio</span><span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-users"/></svg>Suelen sumarse unas 10 personas</span></div>
+    <div class="people"><div class="person"><div class="person-n">Rosa Villalba<small>Coordinadora</small></div><span class="tel">3777-616312</span><button type="button" class="icon-btn" data-copy="3777-616312" aria-label="Copiar el teléfono de Rosa Villalba"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-copy"/></svg></button><a class="wa" href="https://wa.me/5493777616312" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chat"/></svg> WhatsApp</a></div><div class="person"><div class="person-n">Erica Rossi<small>Coordinadora</small></div><span class="tel">3777-679827</span><button type="button" class="icon-btn" data-copy="3777-679827" aria-label="Copiar el teléfono de Erica Rossi"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-copy"/></svg></button><a class="wa" href="https://wa.me/5493777679827" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chat"/></svg> WhatsApp</a></div></div>
+    <a class="btn t-cta" href="#inscripcion-san-antonio">Inscribirme <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
+  </div>
+</article>
+<article class="ticket" id="san-cayetano" data-dias="lunes">
+  <div class="t-when"><b class=""><span>Lun</span></b><i>16 hs</i></div>
+  <div class="t-body">
+    <div class="t-top"><span class="disc soft"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-scissors"/></svg></span><div><h3>Manualidades en San Cayetano</h3><p>Arrancá la semana con un taller donde cada uno trae sus ganas de crear.</p></div></div>
+    <div class="t-meta"><span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>Salón de la Capilla San Cayetano</span><span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-users"/></svg>Suelen sumarse unas 10 personas</span></div>
+    <div class="people"><div class="person"><div class="person-n">Natalia Toffalo<small>Coordinadora</small></div><span class="tel">3777-639938</span><button type="button" class="icon-btn" data-copy="3777-639938" aria-label="Copiar el teléfono de Natalia Toffalo"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-copy"/></svg></button><a class="wa" href="https://wa.me/5493777639938" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chat"/></svg> WhatsApp</a></div><div class="person"><div class="person-n">Carmen Casco<small>Coordinadora</small></div><span class="tel">3777-628271</span><button type="button" class="icon-btn" data-copy="3777-628271" aria-label="Copiar el teléfono de Carmen Casco"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-copy"/></svg></button><a class="wa" href="https://wa.me/5493777628271" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chat"/></svg> WhatsApp</a></div></div>
+    <a class="btn t-cta" href="#inscripcion-san-cayetano">Inscribirme <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
+  </div>
+</article>
+<article class="ticket" id="santa-teresita" data-dias="viernes">
+  <div class="t-when"><b class=""><span>Vie</span></b><i>16 hs</i></div>
+  <div class="t-body">
+    <div class="t-top"><span class="disc soft"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-scissors"/></svg></span><div><h3>Manualidades en Santa Teresita</h3><p>Cerrá la semana con un rato de taller y mate compartido con tus vecinas y vecinos.</p></div></div>
+    <div class="t-meta"><span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>Salón de la Capilla Santa Teresita</span><span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-users"/></svg>Suelen sumarse unas 10 personas</span></div>
+    <div class="people"><div class="person"><div class="person-n">Claudia Toffalo<small>Coordinadora</small></div><span class="tel">3777-275834</span><button type="button" class="icon-btn" data-copy="3777-275834" aria-label="Copiar el teléfono de Claudia Toffalo"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-copy"/></svg></button><a class="wa" href="https://wa.me/5493777275834" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chat"/></svg> WhatsApp</a></div><div class="person"><div class="person-n">Carmen Casco<small>Coordinadora</small></div><span class="tel">3777-628271</span><button type="button" class="icon-btn" data-copy="3777-628271" aria-label="Copiar el teléfono de Carmen Casco"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-copy"/></svg></button><a class="wa" href="https://wa.me/5493777628271" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chat"/></svg> WhatsApp</a></div></div>
+    <a class="btn t-cta" href="#inscripcion-santa-teresita">Inscribirme <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
+  </div>
+</article></div></div><div class="sec-group"><h3><span class="disc soft"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-pulse"/></svg></span>Movimiento al aire libre y en el salón</h3><div class="tickets">
+<article class="ticket" id="gimnasia-jubilados" data-dias="martes">
+  <div class="t-when"><b class=""><span>Mar</span></b><i>9:30 hs</i></div>
+  <div class="t-body">
+    <div class="t-top"><span class="disc soft"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-pulse"/></svg></span><div><h3>Gimnasia en el Centro de Jubilados Provinciales</h3><p>Gimnasia para empezar el día moviéndote a tu ritmo, con una profesora que te acompaña.</p></div></div>
+    <div class="t-meta"><span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>Centro de Jubilados Provinciales</span></div>
+    <div class="people"><div class="person"><div class="person-n">Olga Caceres<small>Profesora</small></div><span class="tel">3777-847314</span><button type="button" class="icon-btn" data-copy="3777-847314" aria-label="Copiar el teléfono de Olga Caceres"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-copy"/></svg></button><a class="wa" href="https://wa.me/5493777847314" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chat"/></svg> WhatsApp</a></div></div>
+    <a class="btn t-cta" href="#inscripcion-gimnasia-jubilados">Inscribirme <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
+  </div>
+</article>
+<article class="ticket" id="plaza-activa" data-dias="lunes miercoles viernes">
+  <div class="t-when"><b class="multi"><span>Lun</span><span>Mié</span><span>Vie</span></b><i>15 hs</i></div>
+  <div class="t-body">
+    <div class="t-top"><span class="disc soft"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-leaf"/></svg></span><div><h3>Plaza Activa</h3><p>Actividad física al aire libre tres veces por semana en el corazón de la ciudad.</p></div></div>
+    <div class="t-meta"><span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>Plaza Pescio</span><span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-users"/></svg>Suelen sumarse unas 20 personas</span></div>
+    <div class="people"><div class="person"><div class="person-n">Olga Caceres<small>Profesora</small></div><span class="tel">3777-847314</span><button type="button" class="icon-btn" data-copy="3777-847314" aria-label="Copiar el teléfono de Olga Caceres"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-copy"/></svg></button><a class="wa" href="https://wa.me/5493777847314" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chat"/></svg> WhatsApp</a></div><div class="person"><div class="person-n">Cesar Maidana<small>Profesor</small></div><span class="tel">3777-598750</span><button type="button" class="icon-btn" data-copy="3777-598750" aria-label="Copiar el teléfono de Cesar Maidana"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-copy"/></svg></button><a class="wa" href="https://wa.me/5493777598750" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chat"/></svg> WhatsApp</a></div></div>
+    <a class="btn t-cta" href="#inscripcion-plaza-activa">Inscribirme <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
+  </div>
+</article></div></div><div class="sec-group"><h3><span class="disc soft"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-heart"/></svg></span>En el Hogar de Ancianos</h3><div class="tickets">
+<article class="ticket" id="gimnasia-hogar" data-dias="miercoles">
+  <div class="t-when"><b class=""><span>Mié</span></b><i>10 hs</i></div>
+  <div class="t-body">
+    <div class="t-top"><span class="disc soft"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-pulse"/></svg></span><div><h3>Gimnasia en el Hogar de Ancianos</h3><p>Ejercicio suave y compartido, a cargo del profesor Cesar Maidana.</p></div></div>
+    <div class="t-meta"><span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>Hogar de Ancianos</span></div>
+    <div class="people"><div class="person"><div class="person-n">Cesar Maidana<small>Profesor</small></div><span class="tel">3777-598750</span><button type="button" class="icon-btn" data-copy="3777-598750" aria-label="Copiar el teléfono de Cesar Maidana"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-copy"/></svg></button><a class="wa" href="https://wa.me/5493777598750" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chat"/></svg> WhatsApp</a></div></div>
+    <a class="btn t-cta" href="#inscripcion-gimnasia-hogar">Inscribirme <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
+  </div>
+</article>
+<article class="ticket" id="pintura-hogar" data-dias="lunes">
+  <div class="t-when"><b class=""><span>Lun</span></b><i>10 hs</i></div>
+  <div class="t-body">
+    <div class="t-top"><span class="disc soft"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-palette"/></svg></span><div><h3>Pintura en el Hogar de Ancianos</h3><p>Pintura para expresarse con colores, acompañados por las coordinadoras.</p></div></div>
+    <div class="t-meta"><span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>Hogar de Ancianos</span></div>
+    <div class="people"><div class="person"><div class="person-n">Natalia Toffalo<small>Coordinadora</small></div><span class="tel">3777-639938</span><button type="button" class="icon-btn" data-copy="3777-639938" aria-label="Copiar el teléfono de Natalia Toffalo"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-copy"/></svg></button><a class="wa" href="https://wa.me/5493777639938" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chat"/></svg> WhatsApp</a></div><div class="person"><div class="person-n">Carmen Casco<small>Coordinadora</small></div><span class="tel">3777-628271</span><button type="button" class="icon-btn" data-copy="3777-628271" aria-label="Copiar el teléfono de Carmen Casco"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-copy"/></svg></button><a class="wa" href="https://wa.me/5493777628271" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chat"/></svg> WhatsApp</a></div></div>
+    <a class="btn t-cta" href="#inscripcion-pintura-hogar">Inscribirme <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
+  </div>
+</article>
+<article class="ticket" id="cognitivas-hogar" data-dias="viernes">
+  <div class="t-when"><b class=""><span>Vie</span></b><i>10 hs</i></div>
+  <div class="t-body">
+    <div class="t-top"><span class="disc soft"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-bulb"/></svg></span><div><h3>Actividades cognitivas en el Hogar de Ancianos</h3><p>Juegos y ejercicios para mantener la mente despierta y pasar un buen rato.</p></div></div>
+    <div class="t-meta"><span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>Hogar de Ancianos</span></div>
+    <div class="people"><div class="person"><div class="person-n">Silvia Villalba<small>Coordinadora</small></div><span class="tel">3777-632188</span><button type="button" class="icon-btn" data-copy="3777-632188" aria-label="Copiar el teléfono de Silvia Villalba"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-copy"/></svg></button><a class="wa" href="https://wa.me/5493777632188" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chat"/></svg> WhatsApp</a></div><div class="person"><div class="person-n">Ezequiel Gimenez<small>Coordinador</small></div><span class="tel">3777-739097</span><button type="button" class="icon-btn" data-copy="3777-739097" aria-label="Copiar el teléfono de Ezequiel Gimenez"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-copy"/></svg></button><a class="wa" href="https://wa.me/5493777739097" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chat"/></svg> WhatsApp</a></div></div>
+    <a class="btn t-cta" href="#inscripcion-cognitivas-hogar">Inscribirme <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
+  </div>
+</article></div></div>
+  </div>
+</section>
+
+<section class="band tint" id="jornadas">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Jornadas especiales 2026</p><h2>Un año de <span class="hl">encuentros</span></h2>
+      <p class="lede">28 jornadas, talleres y salidas que vivimos juntos de enero a octubre. Seguinos en Facebook e Instagram para enterarte de las próximas.</p></div>
+    <div class="tl"><details class="tl-m" open><summary><h3>Enero y febrero</h3><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chevron"/></svg></summary><ul><li><div class="chip">Ene–Feb</div><div><strong>Playa Amiga</strong><span>Actividad física y recreación en el Balneario Municipal.</span></div></li></ul></details><details class="tl-m" open><summary><h3>Marzo</h3><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chevron"/></svg></summary><ul><li><div class="chip">Marzo</div><div><strong>Esquina Corre y camina</strong><span>Participación de adultos mayores en el evento.</span></div></li><li><div class="chip">Mié<b>25</b></div><div><strong>Acto por el 24 de Marzo</strong><span>Día de la Memoria, la Verdad y la Justicia, junto a la Dirección de Juventud, en la Escuela Primaria N° 627, paraje El Carmen.</span></div></li></ul></details><details class="tl-m" open><summary><h3>Abril</h3><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chevron"/></svg></summary><ul><li><div class="chip">Lun<b>27</b></div><div><strong>Taller de Danza</strong><span>A cargo de la profesora Ramona Ojeda, en el Centro Cultural Esquina.</span></div></li></ul></details><details class="tl-m" open><summary><h3>Mayo</h3><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chevron"/></svg></summary><ul><li><div class="chip">Jue<b>14</b></div><div><strong>Talleres de neuroestimulación cognitiva</strong><span>A cargo de la Lic. en Psicopedagogía María Agustina Davicino, en la Casa de Altos Estudios.</span></div></li><li><div class="chip">Sáb<b>16</b></div><div><strong>Juegos Correntinos</strong><span>Instancia local en el Balneario Municipal.</span></div></li><li><div class="chip">Mié<b>20</b></div><div><strong>Taller de Escarapelas</strong><span>Organizado junto con Acción Social, en el CIC.</span></div></li></ul></details><details class="tl-m" open><summary><h3>Junio</h3><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chevron"/></svg></summary><ul><li><div class="chip">Vie<b>5</b></div><div><strong>Charla sobre alimentación saludable</strong><span>A cargo de la nutricionista Rita Zava, en Plaza Pescio.</span></div></li><li><div class="chip">Jue<b>25</b></div><div><strong>Taller Hablemos de Buenos Tratos y Derechos de las Personas Mayores</strong><span>En el marco del Día de Toma de Conciencia del Abuso y Maltrato en la Vejez.</span></div></li><li><div class="chip">Vie<b>26</b></div><div><strong>Charla sobre hipertensión arterial</strong><span>A cargo de la nutricionista Rita Zava, en Plaza Pescio.</span></div></li><li><div class="chip">Mar<b>30</b></div><div><strong>Talleres de neuroestimulación cognitiva</strong><span>A cargo de la Lic. María Agustina Davicino, en la Casa de Altos Estudios.</span></div></li></ul></details><details class="tl-m" open><summary><h3>Julio</h3><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chevron"/></svg></summary><ul><li><div class="chip">Sáb<b>4</b></div><div><strong>Juegos Correntinos</strong><span>Participación en las categorías Sapo y Tejo.</span></div></li><li><div class="chip">Lun<b>13</b></div><div><strong>Taller Socioemocional</strong><span>En la Casa de Altos Estudios.</span></div></li><li><div class="chip">Jue<b>23</b></div><div><strong>Tarde de Cine</strong><span>En la Casa de Altos Estudios.</span></div></li><li><div class="chip">Vie<b>24</b></div><div><strong>Taller de pintura sobre tela</strong><span>En la Municipalidad de Esquina.</span></div></li><li><div class="chip">Sáb<b>25</b></div><div><strong>Tarde de Bingo</strong><span>En el Balneario Municipal.</span></div></li></ul></details><details class="tl-m" open><summary><h3>Agosto</h3><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chevron"/></svg></summary><ul><li><div class="chip">Mié<b>26</b></div><div><strong>Talleres de neuroestimulación cognitiva</strong><span>A cargo de la Lic. María Agustina Davicino, en la Casa de Altos Estudios.</span></div></li><li><div class="chip">Vie<b>28</b></div><div><strong>Juegos Correntinos</strong><span>Participación en las categorías Newcon y Sapo, en Ituzaingó.</span></div></li></ul></details><details class="tl-m" open><summary><h3>Septiembre</h3><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chevron"/></svg></summary><ul><li><div class="chip">Mié<b>2</b></div><div><strong>Taller Abuelos: Tesoros de experiencia y sabiduría</strong><span>En la Escuela Primaria 627 Reinaldo G. Marin.</span></div></li><li><div class="chip">Jue<b>3</b></div><div><strong>Tarde de Cine</strong><span>En la Casa de Altos Estudios.</span></div></li><li><div class="chip">Vie<b>4</b></div><div><strong>Jornada de Salud integral</strong><span>Charla sobre la diabetes, en Plaza Pescio.</span></div></li><li><div class="chip">Jue<b>17</b></div><div><strong>Talleres de neuroestimulación cognitiva</strong><span>A cargo de la Lic. María Agustina Davicino, en la Casa de Altos Estudios.</span></div></li><li><div class="chip">Sáb<b>19</b></div><div><strong>Festejo Día de la Primavera</strong><span>En Pueblo Libertador.</span></div></li><li><div class="chip">Sáb<b>26</b></div><div><strong>Festejo Día de la Primavera</strong><span>En la Sociedad Rural Esquina, con más de 80 participantes, incluidos adultos mayores invitados de Pueblo Libertador.</span></div></li></ul></details><details class="tl-m" open><summary><h3>Octubre</h3><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chevron"/></svg></summary><ul><li><div class="chip">Jue<b>1</b></div><div><strong>Tarde de Cine</strong><span>En la Casa de Altos Estudios.</span></div></li><li><div class="chip">Vie<b>2</b></div><div><strong>Charla sobre inflamación intestinal</strong><span>A cargo de la nutricionista Rita Zava, en Plaza Pescio.</span></div></li><li><div class="chip">Jue<b>15</b></div><div><strong>Taller de ciberseguridad para adultos mayores</strong><span>En la Casa de Altos Estudios.</span></div></li><li><div class="chip">Mié<b>21</b></div><div><strong>Taller Mis Abuelos, mis Raíces</strong><span>Con la profesora Nidia Piaggio, en el CIC.</span></div></li></ul></details></div>
+  </div>
+</section>
+
+<section class="band on-dark" id="como">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Inscripción</p><h2>Cómo <span class="hl">inscribirte</span></h2></div>
+    <ol class="steps">
+      <li><h3>Elegí la actividad</h3><p>Mirá los días y las horas y quedate con la que más te guste.</p></li>
+      <li><h3>Completá tus datos</h3><p>El formulario te va guiando paso a paso y pide solo lo necesario.</p></li>
+      <li><h3>Enviá tu inscripción</h3><p>Al terminar, la mandás por WhatsApp a quien coordina. Si preferís, la dictás por teléfono.</p></li>
+    </ol>
+    <p style="margin-top:32px"><a class="btn" href="#inscripcion">Ir al formulario <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></p>
+  </div>
+</section>
+
+<section class="band on-dark contact-band" id="contacto">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Contacto</p><h2>Hablá con <span class="hl">nosotros</span></h2></div>
+    <div class="contact-grid">
+      <div class="card c-item"><span class="disc"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-user"/></svg></span><div><small>Dirección</small><div class="person"><div class="person-n">Luciana Papaleo<small>Directora</small></div><span class="tel">3777-543854</span><button type="button" class="icon-btn" data-copy="3777-543854" aria-label="Copiar el teléfono de Luciana Papaleo"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-copy"/></svg></button><a class="wa" href="https://wa.me/5493777543854" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chat"/></svg> WhatsApp</a></div></div></div>
+      <div class="card c-item"><span class="disc"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg></span><div><small>Correo electrónico</small><strong>adultosmayores11enero2018@hotmail.com</strong>
+        <div><button type="button" class="btn ghost sm" data-copy="adultosmayores11enero2018@hotmail.com"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-copy"/></svg> Copiar correo</button></div></div></div>
+      <div class="card c-item"><span class="disc"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-facebook"/></svg></span><div><small>Facebook</small><strong>Adultos Mayores Esquina Corrientes</strong></div></div>
+      <div class="card c-item"><span class="disc"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-instagram"/></svg></span><div><small>Instagram</small><strong>aesquinacorrientes</strong></div></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <strong>Esquina Gobierno</strong>
+  <span>Dirección de Adultos Mayores · Municipalidad de la Ciudad de Esquina, Corrientes</span>
+  <span>Esquina, creciendo junto a vos.</span>
+</div></footer>
+</div>
+<div id="view-form" hidden><header class="top"><div class="wrap">
+  <a class="lockup" href="#inicio" aria-label="Volver al informativo de Adultos Mayores">
+    <span class="disc"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-users"/></svg></span>
+    <span class="lockup-t"><small>Dirección de</small><strong>Adultos Mayores</strong><span>Gobierno de Esquina</span></span>
+  </a>
+  <a class="btn ghost sm" href="#inicio"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-back"/></svg> Informativo</a>
+</div></header>
+
+<section class="fhero"><div class="wrap">
+  <p class="eyebrow">Inscripción a actividades</p>
+  <h1 class="h1-s">Inscribite en una <span class="hl">actividad</span></h1>
+  <p class="lede">Tres pasos cortos. Al final, enviás tu inscripción a quien coordina la actividad.</p>
+</div></section>
+<main class="wrap form-wrap">
+  <ol class="stepper" id="stepper" aria-label="Pasos">
+    <li data-s="1" class="on"><span>1</span> Elegí</li>
+    <li data-s="2"><span>2</span> Tus datos</li>
+    <li data-s="3"><span>3</span> Enviá</li>
+  </ol>
+
+  <section id="paso1" aria-labelledby="t1">
+    <fieldset class="pick">
+      <legend id="t1">¿A qué actividad querés inscribirte?</legend>
+      <p class="opt-grp">Manualidades en los barrios</p><div class="opts"><label class="tile"><input type="radio" name="actividad" value="santa-catalina">
+  <span class="tile-body"><span class="tile-when"><b class=""><span>Mar</span></b><i>16 hs</i></span>
+  <span class="tile-t"><strong>Manualidades en Santa Catalina</strong><span>Salón de la Capilla Santa Catalina</span></span></span></label><label class="tile"><input type="radio" name="actividad" value="san-antonio">
+  <span class="tile-body"><span class="tile-when"><b class=""><span>Mié</span></b><i>16 hs</i></span>
+  <span class="tile-t"><strong>Manualidades en San Antonio</strong><span>PROAME San Antonio</span></span></span></label><label class="tile"><input type="radio" name="actividad" value="san-cayetano">
+  <span class="tile-body"><span class="tile-when"><b class=""><span>Lun</span></b><i>16 hs</i></span>
+  <span class="tile-t"><strong>Manualidades en San Cayetano</strong><span>Salón de la Capilla San Cayetano</span></span></span></label><label class="tile"><input type="radio" name="actividad" value="santa-teresita">
+  <span class="tile-body"><span class="tile-when"><b class=""><span>Vie</span></b><i>16 hs</i></span>
+  <span class="tile-t"><strong>Manualidades en Santa Teresita</strong><span>Salón de la Capilla Santa Teresita</span></span></span></label></div><p class="opt-grp">Movimiento al aire libre y en el salón</p><div class="opts"><label class="tile"><input type="radio" name="actividad" value="gimnasia-jubilados">
+  <span class="tile-body"><span class="tile-when"><b class=""><span>Mar</span></b><i>9:30 hs</i></span>
+  <span class="tile-t"><strong>Gimnasia en el Centro de Jubilados Provinciales</strong><span>Centro de Jubilados Provinciales</span></span></span></label><label class="tile"><input type="radio" name="actividad" value="plaza-activa">
+  <span class="tile-body"><span class="tile-when"><b class="multi"><span>Lun</span><span>Mié</span><span>Vie</span></b><i>15 hs</i></span>
+  <span class="tile-t"><strong>Plaza Activa</strong><span>Plaza Pescio</span></span></span></label></div><p class="opt-grp">En el Hogar de Ancianos</p><div class="opts"><label class="tile"><input type="radio" name="actividad" value="gimnasia-hogar">
+  <span class="tile-body"><span class="tile-when"><b class=""><span>Mié</span></b><i>10 hs</i></span>
+  <span class="tile-t"><strong>Gimnasia en el Hogar de Ancianos</strong><span>Hogar de Ancianos</span></span></span></label><label class="tile"><input type="radio" name="actividad" value="pintura-hogar">
+  <span class="tile-body"><span class="tile-when"><b class=""><span>Lun</span></b><i>10 hs</i></span>
+  <span class="tile-t"><strong>Pintura en el Hogar de Ancianos</strong><span>Hogar de Ancianos</span></span></span></label><label class="tile"><input type="radio" name="actividad" value="cognitivas-hogar">
+  <span class="tile-body"><span class="tile-when"><b class=""><span>Vie</span></b><i>10 hs</i></span>
+  <span class="tile-t"><strong>Actividades cognitivas en el Hogar de Ancianos</strong><span>Hogar de Ancianos</span></span></span></label></div>
+    </fieldset>
+    <p class="field-err" id="err-act" role="alert" hidden></p>
+  </section>
+
+  <section id="paso2" hidden aria-labelledby="t2">
+    <div class="card info" id="info" aria-live="polite"></div>
+
+    <form id="f" novalidate>
+      <h2 class="h2-s" id="t2">Tus datos</h2>
+      <div class="fields">
+        <div class="field"><label for="nombre">Nombre y apellido</label>
+          <input id="nombre" name="nombre" autocomplete="name" required><p class="err" hidden></p></div>
+        <div class="field half"><label for="dni">DNI</label><span class="hint">Solo números, sin puntos.</span>
+          <input id="dni" name="dni" inputmode="numeric" autocomplete="off" required><p class="err" hidden></p></div>
+        <div class="field half"><label for="edad">Edad</label>
+          <input id="edad" name="edad" inputmode="numeric" autocomplete="off" required><p class="err" hidden></p></div>
+        <div class="field half"><label for="telefono">Tu teléfono</label><span class="hint">Con característica, por ejemplo 3777-123456.</span>
+          <input id="telefono" name="telefono" type="tel" autocomplete="tel" required><p class="err" hidden></p></div>
+        <div class="field half"><label for="barrio">Barrio o domicilio</label>
+          <input id="barrio" name="barrio" autocomplete="street-address" required><p class="err" hidden></p></div>
+
+        <div class="field half" data-grupos="fisica"><label for="emerg_nombre">Contacto de emergencia: nombre</label>
+          <input id="emerg_nombre" name="emerg_nombre"><p class="err" hidden></p></div>
+        <div class="field half" data-grupos="fisica"><label for="emerg_tel">Contacto de emergencia: teléfono</label>
+          <input id="emerg_tel" name="emerg_tel" type="tel"><p class="err" hidden></p></div>
+        <div class="field" data-grupos="fisica"><label for="salud">¿Tenés alguna condición de salud o indicación médica que debamos conocer?</label>
+          <span class="hint">Si no tenés, dejalo vacío.</span><textarea id="salud" name="salud" rows="3"></textarea></div>
+
+        <div class="field" data-grupos="manual"><label for="interes">¿Qué te gustaría hacer o aprender?</label>
+          <span class="hint">Es opcional.</span><textarea id="interes" name="interes" rows="3"></textarea></div>
+
+        <div class="field" data-grupos="hogar"><label for="hogar_msg">Contanos cómo querés participar</label>
+          <span class="hint">Es opcional. Por ejemplo, si venís por tu cuenta o acompañando a alguien.</span><textarea id="hogar_msg" name="hogar_msg" rows="3"></textarea></div>
+
+        <label class="check"><input type="checkbox" id="avisos" name="avisos"><span>Quiero que me avisen de las próximas jornadas especiales.</span></label>
+        <div class="field"><label class="check"><input type="checkbox" id="consent" name="consent" required><span>Acepto que la Dirección de Adultos Mayores use mis datos para gestionar mi inscripción.</span></label><p class="err" hidden></p></div>
+      </div>
+      <button class="btn block" type="submit">Revisar mi inscripción <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></button>
+    </form>
+  </section>
+
+  <section id="paso3" hidden aria-labelledby="t3">
+    <div class="card done">
+      <span class="disc"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chat"/></svg></span>
+      <h2 class="h2-s" id="t3" tabindex="-1">Último paso: enviala</h2>
+      <p class="lede">Tu inscripción <strong>todavía no se envió</strong>. Se completa cuando se la mandás a quien coordina la actividad.</p>
+      <dl class="sum" id="sum"></dl>
+      <div class="send" id="send"></div>
+      <p class="alt">¿No usás WhatsApp? Llamá a quien coordina y dictale estos datos, o copiá el texto de abajo.</p>
+      <label class="sr" for="msg">Texto de tu inscripción</label>
+      <textarea id="msg" readonly rows="6"></textarea>
+      <div class="row-btns">
+        <button type="button" class="btn ghost" id="copy-msg"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-copy"/></svg> Copiar mi inscripción</button>
+        <button type="button" class="btn ghost" id="edit"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-back"/></svg> Corregir mis datos</button>
+        <button type="button" class="btn ghost" id="again">Inscribirme en otra actividad</button>
+      </div>
+    </div>
+  </section>
+
+  <p class="small-note">¿Dudas? Escribile a la directora, Luciana Papaleo: <span class="tel">3777-543854</span>.</p>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <strong>Esquina Gobierno</strong>
+  <span>Dirección de Adultos Mayores · Municipalidad de la Ciudad de Esquina, Corrientes</span>
+</div></footer>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+<script>
+(function () {
+  if (window.matchMedia && matchMedia('(max-width: 700px)').matches) {
+    Array.prototype.forEach.call(document.querySelectorAll('details.month, details.tl-m'), function (d) { d.removeAttribute('open'); });
+  }
+  var btns = Array.prototype.slice.call(document.querySelectorAll('.filters button'));
+  var tickets = Array.prototype.slice.call(document.querySelectorAll('.ticket'));
+  var groups = Array.prototype.slice.call(document.querySelectorAll('.sec-group'));
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var f = b.getAttribute('data-f');
+      btns.forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      tickets.forEach(function (k) { k.hidden = !(f === 'todos' || k.getAttribute('data-dias').split(' ').indexOf(f) > -1); });
+      groups.forEach(function (g) { g.hidden = !g.querySelector('.ticket:not([hidden])'); });
+    });
+  });
+})();
+</script>
+<script>
+var ACT = [{"id": "santa-catalina", "sec": "barrios", "grupo": "manual", "icon": "scissors", "titulo": "Manualidades en Santa Catalina", "dias": "Martes", "hora": "16 hs", "lugar": "Salón de la Capilla Santa Catalina", "gente": 20, "who": [{"nombre": "Silvia Villalba", "rol": "Coordinadora", "tel": "3777-632188"}, {"nombre": "Ezequiel Gimenez", "rol": "Coordinador", "tel": "3777-739097"}]}, {"id": "san-antonio", "sec": "barrios", "grupo": "manual", "icon": "scissors", "titulo": "Manualidades en San Antonio", "dias": "Miércoles", "hora": "16 hs", "lugar": "PROAME San Antonio", "gente": 10, "who": [{"nombre": "Rosa Villalba", "rol": "Coordinadora", "tel": "3777-616312"}, {"nombre": "Erica Rossi", "rol": "Coordinadora", "tel": "3777-679827"}]}, {"id": "san-cayetano", "sec": "barrios", "grupo": "manual", "icon": "scissors", "titulo": "Manualidades en San Cayetano", "dias": "Lunes", "hora": "16 hs", "lugar": "Salón de la Capilla San Cayetano", "gente": 10, "who": [{"nombre": "Natalia Toffalo", "rol": "Coordinadora", "tel": "3777-639938"}, {"nombre": "Carmen Casco", "rol": "Coordinadora", "tel": "3777-628271"}]}, {"id": "santa-teresita", "sec": "barrios", "grupo": "manual", "icon": "scissors", "titulo": "Manualidades en Santa Teresita", "dias": "Viernes", "hora": "16 hs", "lugar": "Salón de la Capilla Santa Teresita", "gente": 10, "who": [{"nombre": "Claudia Toffalo", "rol": "Coordinadora", "tel": "3777-275834"}, {"nombre": "Carmen Casco", "rol": "Coordinadora", "tel": "3777-628271"}]}, {"id": "gimnasia-jubilados", "sec": "movimiento", "grupo": "fisica", "icon": "pulse", "titulo": "Gimnasia en el Centro de Jubilados Provinciales", "dias": "Martes", "hora": "9:30 hs", "lugar": "Centro de Jubilados Provinciales", "gente": null, "who": [{"nombre": "Olga Caceres", "rol": "Profesora", "tel": "3777-847314"}]}, {"id": "plaza-activa", "sec": "movimiento", "grupo": "fisica", "icon": "leaf", "titulo": "Plaza Activa", "dias": "Lunes, miércoles y viernes", "hora": "15 hs", "lugar": "Plaza Pescio", "gente": 20, "who": [{"nombre": "Olga Caceres", "rol": "Profesora", "tel": "3777-847314"}, {"nombre": "Cesar Maidana", "rol": "Profesor", "tel": "3777-598750"}]}, {"id": "gimnasia-hogar", "sec": "hogar", "grupo": "hogar", "icon": "pulse", "titulo": "Gimnasia en el Hogar de Ancianos", "dias": "Miércoles", "hora": "10 hs", "lugar": "Hogar de Ancianos", "gente": null, "who": [{"nombre": "Cesar Maidana", "rol": "Profesor", "tel": "3777-598750"}]}, {"id": "pintura-hogar", "sec": "hogar", "grupo": "hogar", "icon": "palette", "titulo": "Pintura en el Hogar de Ancianos", "dias": "Lunes", "hora": "10 hs", "lugar": "Hogar de Ancianos", "gente": null, "who": [{"nombre": "Natalia Toffalo", "rol": "Coordinadora", "tel": "3777-639938"}, {"nombre": "Carmen Casco", "rol": "Coordinadora", "tel": "3777-628271"}]}, {"id": "cognitivas-hogar", "sec": "hogar", "grupo": "hogar", "icon": "bulb", "titulo": "Actividades cognitivas en el Hogar de Ancianos", "dias": "Viernes", "hora": "10 hs", "lugar": "Hogar de Ancianos", "gente": null, "who": [{"nombre": "Silvia Villalba", "rol": "Coordinadora", "tel": "3777-632188"}, {"nombre": "Ezequiel Gimenez", "rol": "Coordinador", "tel": "3777-739097"}]}];
+(function () {
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var byId = {}; ACT.forEach(function (a) { byId[a.id] = a; });
+  var current = null, last = null;
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function esc(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+  function digits(s) { return String(s).replace(/\D/g, ''); }
+  function waHref(tel, text) { return 'https://wa.me/549' + digits(tel) + (text ? '?text=' + encodeURIComponent(text) : ''); }
+  function ico(n) { return '<svg class="ic" aria-hidden="true" focusable="false"><use href="#i-' + n + '"/></svg>'; }
+
+  /* ---------- aviso y copiado ---------- */
+  var toast = $('#toast'), tt;
+  function say(m) { toast.textContent = m; toast.hidden = false; clearTimeout(tt); tt = setTimeout(function () { toast.hidden = true; }, 2400); }
+  function legacy(text) {
+    var ta = document.createElement('textarea'); ta.value = text; ta.setAttribute('readonly', '');
+    ta.style.cssText = 'position:fixed;opacity:0'; document.body.appendChild(ta); ta.select();
+    var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta); return ok;
+  }
+  function copy(text, okMsg) {
+    function done(ok) { say(ok ? okMsg : 'No se pudo copiar. Seleccioná el texto y copialo a mano.'); }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(legacy(text)); });
+    } else { done(legacy(text)); }
+  }
+  document.addEventListener('click', function (ev) {
+    var b = ev.target.closest('[data-copy]'); if (!b) return;
+    copy(b.getAttribute('data-copy'), 'Copiado: ' + b.getAttribute('data-copy'));
+  });
+
+  /* ---------- pasos ---------- */
+  function setStep(n) {
+    $$('.stepper li').forEach(function (li) { li.classList.toggle('on', +li.getAttribute('data-s') <= n); });
+  }
+  function scrollTo(el) { el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); }
+
+  function personHtml(p, text) {
+    return '<div class="person"><div class="person-n">' + esc(p.nombre) + '<small>' + esc(p.rol) + '</small></div>' +
+      '<span class="tel">' + esc(p.tel) + '</span>' +
+      '<button type="button" class="icon-btn" data-copy="' + esc(p.tel) + '" aria-label="Copiar el teléfono de ' + esc(p.nombre) + '">' + ico('copy') + '</button>' +
+      '<a class="wa" href="' + waHref(p.tel, text) + '" target="_blank" rel="noopener">' + ico('chat') + ' WhatsApp</a></div>';
+  }
+
+  function select(id) {
+    var a = byId[id]; if (!a) return;
+    current = a;
+    var r = $('input[name=actividad][value="' + id + '"]'); if (r) r.checked = true;
+    $('#err-act').hidden = true;
+    $('#info').innerHTML =
+      '<p class="eyebrow">Actividad elegida</p><h2>' + esc(a.titulo) + '</h2>' +
+      '<ul class="facts">' +
+      '<li>' + ico('calendar') + '<span><strong>' + esc(a.dias) + '</strong> · ' + esc(a.hora) + '</span></li>' +
+      '<li>' + ico('pin') + '<span>' + esc(a.lugar) + '</span></li>' +
+      (a.gente ? '<li>' + ico('users') + '<span>Suelen sumarse unas ' + a.gente + ' personas</span></li>' : '') +
+      '</ul><div class="who"><p class="who-t">Consultas con</p>' + a.who.map(function (p) { return personHtml(p); }).join('') + '</div>' +
+      '<button type="button" class="btn ghost sm" id="change">' + ico('back') + ' Cambiar actividad</button>';
+    $$('[data-grupos]').forEach(function (el) {
+      var on = el.getAttribute('data-grupos').split(' ').indexOf(a.grupo) > -1;
+      el.hidden = !on;
+      $$('input,textarea', el).forEach(function (i) { i.disabled = !on; });
+    });
+    $('#paso1').hidden = true; $('#paso2').hidden = false; $('#paso3').hidden = true;
+    setStep(2);
+  }
+
+  $$('input[name=actividad]').forEach(function (r) {
+    r.addEventListener('change', function () { select(r.value); scrollTo($('#stepper')); });
+  });
+
+  /* ---------- validación ---------- */
+  function fail(input, msg) {
+    var f = input.closest('.field'); f.classList.add('bad');
+    var e = $('.err', f); if (e) { e.textContent = msg; e.hidden = false; }
+    input.setAttribute('aria-invalid', 'true');
+  }
+  function clear(input) {
+    var f = input.closest('.field'); if (!f) return; f.classList.remove('bad');
+    var e = $('.err', f); if (e) e.hidden = true; input.removeAttribute('aria-invalid');
+  }
+  $$('#f input, #f textarea').forEach(function (i) { i.addEventListener('input', function () { clear(i); }); i.addEventListener('change', function () { clear(i); }); });
+
+  function validate() {
+    var bad = [], f = $('#f');
+    function need(id, test, msg) {
+      var i = f.elements[id]; if (!i || i.disabled) return; clear(i);
+      if (!test(i.value.trim())) { fail(i, msg); bad.push(i); }
+    }
+    need('nombre', function (v) { return v.length >= 3 && /\s/.test(v); }, 'Escribí tu nombre y apellido.');
+    need('dni', function (v) { var d = digits(v); return d.length >= 6 && d.length <= 9; }, 'Escribí tu DNI, solo números.');
+    need('edad', function (v) { var n = +digits(v); return digits(v) && n >= 1 && n <= 120; }, 'Escribí tu edad.');
+    need('telefono', function (v) { return digits(v).length >= 8; }, 'Escribí un teléfono para poder comunicarnos con vos.');
+    need('barrio', function (v) { return v.length >= 3; }, 'Escribí tu barrio o domicilio.');
+    need('emerg_nombre', function (v) { return v.length >= 3; }, 'Escribí el nombre de tu contacto de emergencia.');
+    need('emerg_tel', function (v) { return digits(v).length >= 8; }, 'Escribí el teléfono de tu contacto de emergencia.');
+    var c = f.elements.consent; clear(c);
+    if (!c.checked) { fail(c, 'Tildá esta casilla para poder inscribirte.'); bad.push(c); }
+    return bad;
+  }
+
+  /* ---------- armado del mensaje ---------- */
+  function val(id) { var i = $('#f').elements[id]; return (i && !i.disabled) ? i.value.trim() : ''; }
+  function buildLines() {
+    var a = current, L = [];
+    L.push(['Actividad', a.titulo]);
+    L.push(['Día y hora', a.dias + ' · ' + a.hora]);
+    L.push(['Lugar', a.lugar]);
+    L.push(['Nombre y apellido', val('nombre')]);
+    L.push(['DNI', digits(val('dni'))]);
+    L.push(['Edad', digits(val('edad'))]);
+    L.push(['Teléfono', val('telefono')]);
+    L.push(['Barrio o domicilio', val('barrio')]);
+    if (a.grupo === 'fisica') {
+      L.push(['Contacto de emergencia', val('emerg_nombre') + ' (' + val('emerg_tel') + ')']);
+      if (val('salud')) L.push(['Salud', val('salud')]);
+    }
+    if (a.grupo === 'manual' && val('interes')) L.push(['Quiero hacer o aprender', val('interes')]);
+    if (a.grupo === 'hogar' && val('hogar_msg')) L.push(['Cómo quiero participar', val('hogar_msg')]);
+    L.push(['Avisos de jornadas especiales', $('#avisos').checked ? 'Sí' : 'No']);
+    return L;
+  }
+  function buildText(L) {
+    return 'Hola, quiero inscribirme en una actividad de Adultos Mayores de Esquina.\n\n' +
+      L.map(function (r) { return r[0] + ': ' + r[1]; }).join('\n') +
+      '\n\nAcepto que usen mis datos para gestionar mi inscripción. ¡Gracias!';
+  }
+
+  $('#f').addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    if (!current) { var e = $('#err-act'); e.textContent = 'Elegí primero una actividad.'; e.hidden = false; scrollTo($('#paso1')); return; }
+    var bad = validate();
+    if (bad.length) { bad[0].focus(); say('Revisá los datos marcados en rojo.'); return; }
+    var L = buildLines(), text = buildText(L); last = text;
+    $('#sum').innerHTML = L.map(function (r) { return '<dt>' + esc(r[0]) + '</dt><dd>' + esc(r[1]) + '</dd>'; }).join('');
+    $('#msg').value = text;
+    $('#send').innerHTML = current.who.map(function (p, i) {
+      return '<a class="btn' + (i ? ' ghost' : '') + '" href="' + waHref(p.tel, text) + '" target="_blank" rel="noopener">' +
+        ico('chat') + ' Enviar por WhatsApp a ' + esc(p.nombre) + ' <span class="sr">(' + esc(p.rol) + ')</span></a>';
+    }).join('');
+    $('#paso2').hidden = true; $('#paso1').hidden = true; $('#paso3').hidden = false;
+    setStep(3);
+    var h = $('#t3'); scrollTo($('#paso3')); h.focus({ preventScroll: true });
+  });
+
+  $('#copy-msg').addEventListener('click', function () {
+    var m = $('#msg');
+    function fallback() { m.focus(); m.select(); say('Seleccioná el texto y copialo a mano.'); }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(m.value).then(function () { say('Inscripción copiada.'); }, function () { if (legacy(m.value)) say('Inscripción copiada.'); else fallback(); });
+    } else if (legacy(m.value)) { say('Inscripción copiada.'); } else { fallback(); }
+  });
+  $('#edit').addEventListener('click', function () {
+    $('#paso3').hidden = true; $('#paso1').hidden = true; $('#paso2').hidden = false; setStep(2); scrollTo($('#stepper'));
+  });
+  $('#again').addEventListener('click', function () {
+    $('#paso3').hidden = true; $('#paso2').hidden = true; $('#paso1').hidden = false;
+    $$('input[name=actividad]').forEach(function (r) { r.checked = false; });
+    current = null; setStep(1); scrollTo($('#paso1'));
+  });
+
+  document.addEventListener('click', function (ev) {
+    if (!ev.target.closest('#change')) return;
+    $('#paso2').hidden = true; $('#paso1').hidden = false; setStep(1); scrollTo($('#stepper'));
+  });
+
+  /* ---------- actividad que viene en el enlace ---------- */
+  var homeV = document.getElementById('view-home'), formV = document.getElementById('view-form');
+  var T_HOME = 'Actividades Adultos Mayores', T_FORM = 'Inscripción Adultos Mayores';
+  function route() {
+    var h = location.hash.replace('#', '');
+    var inForm = h.indexOf('inscripcion') === 0;
+    homeV.hidden = inForm; formV.hidden = !inForm;
+    document.title = inForm ? T_FORM : T_HOME;
+    if (inForm) {
+      var id = h.replace(/^inscripcion-?/, '');
+      window.scrollTo(0, 0);
+      if (byId[id]) { select(id); setTimeout(function () { scrollTo($('#stepper') || $('#info')); }, 60); }
+    } else {
+      var el = h && document.getElementById(h);
+      if (el) el.scrollIntoView(); else window.scrollTo(0, 0);
+    }
+  }
+  window.addEventListener('hashchange', route);
+  route();
+  function fixAnchor() {
+    if (!formV.hidden) return;
+    var h = location.hash.replace('#', ''), el = h && document.getElementById(h);
+    if (el) el.scrollIntoView();
+  }
+  window.addEventListener('load', fixAnchor);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fixAnchor);
+})();
+
+</script>
+</body></html>
