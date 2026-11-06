@@ -830,6 +830,26 @@ var ACT = [{"id": "santa-catalina", "sec": "barrios", "grupo": "manual", "icon":
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var byId = {}; ACT.forEach(function (a) { byId[a.id] = a; });
   var current = null, last = null;
+
+  /* ---------- envío a la hoja de cálculo ---------- */
+  // Pegá acá la URL de TU Apps Script (el de este formulario).
+  // Mientras diga PEGAR_AQUI..., no se guarda en la hoja y todo lo demás funciona igual.
+  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbzEja8GXV27hlb_3VUyZu7BxXZoK7tHDegOty9hSOHt1JbK4dPAfU4zPo00ZJH1azWnWg/exec';
+  var guardado = null;   // evita duplicar la fila si la persona vuelve atrás y reenvía lo mismo
+  function guardarEnHoja(texto) {
+    if (!/^https:\/\//.test(ENDPOINT) || texto === guardado) return;
+    guardado = texto;
+    var a = current, d = new URLSearchParams();
+    d.set('formulario', 'informativo');
+    d.set('actividad_id', a.id); d.set('actividad', a.titulo);
+    d.set('dia_hora', a.dias + ' · ' + a.hora); d.set('lugar', a.lugar);
+    d.set('nombre', val('nombre')); d.set('dni', digits(val('dni'))); d.set('edad', digits(val('edad')));
+    d.set('telefono', val('telefono')); d.set('barrio', val('barrio'));
+    d.set('emerg_nombre', val('emerg_nombre')); d.set('emerg_tel', val('emerg_tel')); d.set('salud', val('salud'));
+    d.set('interes', val('interes')); d.set('hogar_msg', val('hogar_msg'));
+    d.set('avisos', $('#avisos').checked ? 'Sí' : 'No');
+    try { fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', body: d }).catch(function () { guardado = null; }); } catch (e) { guardado = null; }
+  }
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function esc(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
@@ -959,6 +979,7 @@ var ACT = [{"id": "santa-catalina", "sec": "barrios", "grupo": "manual", "icon":
     var bad = validate();
     if (bad.length) { bad[0].focus(); say('Revisá los datos marcados en rojo.'); return; }
     var L = buildLines(), text = buildText(L); last = text;
+    guardarEnHoja(text);
     $('#sum').innerHTML = L.map(function (r) { return '<dt>' + esc(r[0]) + '</dt><dd>' + esc(r[1]) + '</dd>'; }).join('');
     $('#msg').value = text;
     $('#send').innerHTML = current.who.map(function (p, i) {
