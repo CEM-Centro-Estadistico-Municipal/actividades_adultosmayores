@@ -669,7 +669,7 @@ textarea { min-height: 72px; }
     <ol class="steps">
       <li><h3>Elegí la actividad</h3><p>Mirá los días y las horas y quedate con la que más te guste.</p></li>
       <li><h3>Completá tus datos</h3><p>El formulario te va guiando paso a paso y pide solo lo necesario.</p></li>
-      <li><h3>Enviá tu inscripción</h3><p>Al terminar, la mandás por WhatsApp a quien coordina. Si preferís, la dictás por teléfono.</p></li>
+      <li><h3>Enviá tu inscripción</h3><p>Al terminar, tu inscripción queda registrada. Si tenés dudas, podés escribirle a quien coordina.</p></li>
     </ol>
     <p style="margin-top:32px"><a class="btn" href="#inscripcion">Ir al formulario <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></p>
   </div>
@@ -712,33 +712,35 @@ textarea { min-height: 72px; }
   <ol class="stepper" id="stepper" aria-label="Pasos">
     <li data-s="1" class="on"><span>1</span> Elegí</li>
     <li data-s="2"><span>2</span> Tus datos</li>
-    <li data-s="3"><span>3</span> Enviá</li>
+    <li data-s="3"><span>3</span> Listo</li>
   </ol>
 
   <section id="paso1" aria-labelledby="t1">
     <fieldset class="pick">
-      <legend id="t1">¿A qué actividad querés inscribirte?</legend>
-      <p class="opt-grp">Manualidades en los barrios</p><div class="opts"><label class="tile"><input type="radio" name="actividad" value="santa-catalina">
+      <legend id="t1">¿A qué actividades querés inscribirte?</legend>
+      <p class="alt" style="margin:-4px 0 10px">Podés elegir una o más. Cuando termines, tocá <strong>Continuar</strong>.</p>
+      <p class="opt-grp">Manualidades en los barrios</p><div class="opts"><label class="tile"><input type="checkbox" name="actividad" value="santa-catalina">
   <span class="tile-body"><span class="tile-when"><b class=""><span>Mar</span></b><i>16 hs</i></span>
-  <span class="tile-t"><strong>Manualidades en Santa Catalina</strong><span>Salón de la Capilla Santa Catalina</span></span></span></label><label class="tile"><input type="radio" name="actividad" value="san-antonio">
+  <span class="tile-t"><strong>Manualidades en Santa Catalina</strong><span>Salón de la Capilla Santa Catalina</span></span></span></label><label class="tile"><input type="checkbox" name="actividad" value="san-antonio">
   <span class="tile-body"><span class="tile-when"><b class=""><span>Mié</span></b><i>16 hs</i></span>
-  <span class="tile-t"><strong>Manualidades en San Antonio</strong><span>PROAME San Antonio</span></span></span></label><label class="tile"><input type="radio" name="actividad" value="san-cayetano">
+  <span class="tile-t"><strong>Manualidades en San Antonio</strong><span>PROAME San Antonio</span></span></span></label><label class="tile"><input type="checkbox" name="actividad" value="san-cayetano">
   <span class="tile-body"><span class="tile-when"><b class=""><span>Lun</span></b><i>16 hs</i></span>
-  <span class="tile-t"><strong>Manualidades en San Cayetano</strong><span>Salón de la Capilla San Cayetano</span></span></span></label><label class="tile"><input type="radio" name="actividad" value="santa-teresita">
+  <span class="tile-t"><strong>Manualidades en San Cayetano</strong><span>Salón de la Capilla San Cayetano</span></span></span></label><label class="tile"><input type="checkbox" name="actividad" value="santa-teresita">
   <span class="tile-body"><span class="tile-when"><b class=""><span>Vie</span></b><i>16 hs</i></span>
-  <span class="tile-t"><strong>Manualidades en Santa Teresita</strong><span>Salón de la Capilla Santa Teresita</span></span></span></label></div><p class="opt-grp">Movimiento al aire libre y en el salón</p><div class="opts"><label class="tile"><input type="radio" name="actividad" value="gimnasia-jubilados">
+  <span class="tile-t"><strong>Manualidades en Santa Teresita</strong><span>Salón de la Capilla Santa Teresita</span></span></span></label></div><p class="opt-grp">Movimiento al aire libre y en el salón</p><div class="opts"><label class="tile"><input type="checkbox" name="actividad" value="gimnasia-jubilados">
   <span class="tile-body"><span class="tile-when"><b class=""><span>Mar</span></b><i>9:30 hs</i></span>
-  <span class="tile-t"><strong>Gimnasia en el Centro de Jubilados Provinciales</strong><span>Centro de Jubilados Provinciales</span></span></span></label><label class="tile"><input type="radio" name="actividad" value="plaza-activa">
+  <span class="tile-t"><strong>Gimnasia en el Centro de Jubilados Provinciales</strong><span>Centro de Jubilados Provinciales</span></span></span></label><label class="tile"><input type="checkbox" name="actividad" value="plaza-activa">
   <span class="tile-body"><span class="tile-when"><b class="multi"><span>Lun</span><span>Mié</span><span>Vie</span></b><i>15 hs</i></span>
-  <span class="tile-t"><strong>Plaza Activa</strong><span>Plaza Pescio</span></span></span></label></div><p class="opt-grp">En el Hogar de Ancianos</p><div class="opts"><label class="tile"><input type="radio" name="actividad" value="gimnasia-hogar">
+  <span class="tile-t"><strong>Plaza Activa</strong><span>Plaza Pescio</span></span></span></label></div><p class="opt-grp">En el Hogar de Ancianos</p><div class="opts"><label class="tile"><input type="checkbox" name="actividad" value="gimnasia-hogar">
   <span class="tile-body"><span class="tile-when"><b class=""><span>Mié</span></b><i>10 hs</i></span>
-  <span class="tile-t"><strong>Gimnasia en el Hogar de Ancianos</strong><span>Hogar de Ancianos</span></span></span></label><label class="tile"><input type="radio" name="actividad" value="pintura-hogar">
+  <span class="tile-t"><strong>Gimnasia en el Hogar de Ancianos</strong><span>Hogar de Ancianos</span></span></span></label><label class="tile"><input type="checkbox" name="actividad" value="pintura-hogar">
   <span class="tile-body"><span class="tile-when"><b class=""><span>Lun</span></b><i>10 hs</i></span>
-  <span class="tile-t"><strong>Pintura en el Hogar de Ancianos</strong><span>Hogar de Ancianos</span></span></span></label><label class="tile"><input type="radio" name="actividad" value="cognitivas-hogar">
+  <span class="tile-t"><strong>Pintura en el Hogar de Ancianos</strong><span>Hogar de Ancianos</span></span></span></label><label class="tile"><input type="checkbox" name="actividad" value="cognitivas-hogar">
   <span class="tile-body"><span class="tile-when"><b class=""><span>Vie</span></b><i>10 hs</i></span>
   <span class="tile-t"><strong>Actividades cognitivas en el Hogar de Ancianos</strong><span>Hogar de Ancianos</span></span></span></label></div>
     </fieldset>
     <p class="field-err" id="err-act" role="alert" hidden></p>
+    <button type="button" class="btn block" id="seguir" hidden>Continuar</button>
   </section>
 
   <section id="paso2" hidden aria-labelledby="t2">
@@ -774,24 +776,20 @@ textarea { min-height: 72px; }
         <label class="check"><input type="checkbox" id="avisos" name="avisos"><span>Quiero que me avisen de las próximas jornadas especiales.</span></label>
         <div class="field"><label class="check"><input type="checkbox" id="consent" name="consent" required><span>Acepto que la Dirección de Adultos Mayores use mis datos para gestionar mi inscripción.</span></label><p class="err" hidden></p></div>
       </div>
-      <button class="btn block" type="submit">Revisar mi inscripción <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></button>
+      <button class="btn block" type="submit">Enviar mi inscripción <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></button>
     </form>
   </section>
 
   <section id="paso3" hidden aria-labelledby="t3">
     <div class="card done">
       <span class="disc"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chat"/></svg></span>
-      <h2 class="h2-s" id="t3" tabindex="-1">Último paso: enviala</h2>
-      <p class="lede">Tu inscripción <strong>todavía no se envió</strong>. Se completa cuando se la mandás a quien coordina la actividad.</p>
+      <h2 class="h2-s" id="t3" tabindex="-1">¡Listo, quedaste inscripto!</h2>
+      <p class="lede">Tu inscripción <strong>ya quedó registrada</strong>. No hace falta que mandes nada más.</p>
       <dl class="sum" id="sum"></dl>
-      <div class="send" id="send"></div>
-      <p class="alt">¿No usás WhatsApp? Llamá a quien coordina y dictale estos datos, o copiá el texto de abajo.</p>
-      <label class="sr" for="msg">Texto de tu inscripción</label>
-      <textarea id="msg" readonly rows="6"></textarea>
+            <p class="alt">Si tenés alguna duda o querés consultar algo, podés comunicarte con quien coordina la actividad:</p>
+      <div class="send" id="contactos"></div>
       <div class="row-btns">
-        <button type="button" class="btn ghost" id="copy-msg"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-copy"/></svg> Copiar mi inscripción</button>
-        <button type="button" class="btn ghost" id="edit"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-back"/></svg> Corregir mis datos</button>
-        <button type="button" class="btn ghost" id="again">Inscribirme en otra actividad</button>
+        <button type="button" class="btn ghost" id="again">Inscribirme en otras actividades con los mismos datos</button>
       </div>
     </div>
   </section>
@@ -829,26 +827,38 @@ var ACT = [{"id": "santa-catalina", "sec": "barrios", "grupo": "manual", "icon":
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var byId = {}; ACT.forEach(function (a) { byId[a.id] = a; });
-  var current = null, last = null;
+  var sel = [], last = null;
 
   /* ---------- envío a la hoja de cálculo ---------- */
   // Pegá acá la URL de TU Apps Script (el de este formulario).
   // Mientras diga PEGAR_AQUI..., no se guarda en la hoja y todo lo demás funciona igual.
   var ENDPOINT = 'https://script.google.com/macros/s/AKfycbzEja8GXV27hlb_3VUyZu7BxXZoK7tHDegOty9hSOHt1JbK4dPAfU4zPo00ZJH1azWnWg/exec';
-  var guardado = null;   // evita duplicar la fila si la persona vuelve atrás y reenvía lo mismo
-  function guardarEnHoja(texto) {
-    if (!/^https:\/\//.test(ENDPOINT) || texto === guardado) return;
-    guardado = texto;
-    var a = current, d = new URLSearchParams();
+  var guardadas = {};   // evita duplicar una fila si la persona vuelve atrás y reenvía lo mismo
+  function filaDe(a) {
+    var d = new URLSearchParams();
     d.set('formulario', 'informativo');
     d.set('actividad_id', a.id); d.set('actividad', a.titulo);
     d.set('dia_hora', a.dias + ' · ' + a.hora); d.set('lugar', a.lugar);
     d.set('nombre', val('nombre')); d.set('dni', digits(val('dni'))); d.set('edad', digits(val('edad')));
     d.set('telefono', val('telefono')); d.set('barrio', val('barrio'));
-    d.set('emerg_nombre', val('emerg_nombre')); d.set('emerg_tel', val('emerg_tel')); d.set('salud', val('salud'));
-    d.set('interes', val('interes')); d.set('hogar_msg', val('hogar_msg'));
+    if (a.grupo === 'fisica') { d.set('emerg_nombre', val('emerg_nombre')); d.set('emerg_tel', val('emerg_tel')); d.set('salud', val('salud')); }
+    if (a.grupo === 'manual') d.set('interes', val('interes'));
+    if (a.grupo === 'hogar') d.set('hogar_msg', val('hogar_msg'));
     d.set('avisos', $('#avisos').checked ? 'Sí' : 'No');
-    try { fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', body: d }).catch(function () { guardado = null; }); } catch (e) { guardado = null; }
+    return d;
+  }
+  /* una fila por cada actividad elegida */
+  function guardarEnHoja() {
+    if (!/^https:\/\//.test(ENDPOINT)) return;
+    var dni = digits(val('dni')), cadena = Promise.resolve();
+    sel.forEach(function (a) {
+      var clave = a.id + '|' + dni;
+      if (guardadas[clave]) return;
+      guardadas[clave] = true;
+      cadena = cadena.then(function () {
+        return fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', body: filaDe(a) }).catch(function () { guardadas[clave] = false; });
+      });
+    });
   }
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -890,30 +900,47 @@ var ACT = [{"id": "santa-catalina", "sec": "barrios", "grupo": "manual", "icon":
       '<a class="wa" href="' + waHref(p.tel, text) + '" target="_blank" rel="noopener">' + ico('chat') + ' WhatsApp</a></div>';
   }
 
-  function select(id) {
-    var a = byId[id]; if (!a) return;
-    current = a;
-    var r = $('input[name=actividad][value="' + id + '"]'); if (r) r.checked = true;
-    $('#err-act').hidden = true;
+  function elegidas() { return $$('input[name=actividad]:checked').map(function (i) { return byId[i.value]; }); }
+  function actualizarSeleccion() {
+    sel = elegidas();
+    var b = $('#seguir');
+    b.hidden = !sel.length;
+    b.textContent = sel.length > 1 ? 'Continuar con ' + sel.length + ' actividades' : 'Continuar con esta actividad';
+    if (sel.length) $('#err-act').hidden = true;
+  }
+  function mostrar() {
+    var grupos = {};
+    sel.forEach(function (a) { grupos[a.grupo] = true; });
     $('#info').innerHTML =
-      '<p class="eyebrow">Actividad elegida</p><h2>' + esc(a.titulo) + '</h2>' +
-      '<ul class="facts">' +
-      '<li>' + ico('calendar') + '<span><strong>' + esc(a.dias) + '</strong> · ' + esc(a.hora) + '</span></li>' +
-      '<li>' + ico('pin') + '<span>' + esc(a.lugar) + '</span></li>' +
-      (a.gente ? '<li>' + ico('users') + '<span>Suelen sumarse unas ' + a.gente + ' personas</span></li>' : '') +
-      '</ul><div class="who"><p class="who-t">Consultas con</p>' + a.who.map(function (p) { return personHtml(p); }).join('') + '</div>' +
-      '<button type="button" class="btn ghost sm" id="change">' + ico('back') + ' Cambiar actividad</button>';
+      '<p class="eyebrow">' + (sel.length > 1 ? 'Actividades elegidas' : 'Actividad elegida') + '</p>' +
+      sel.map(function (a) {
+        return '<h2>' + esc(a.titulo) + '</h2>' +
+          '<ul class="facts">' +
+          '<li>' + ico('calendar') + '<span><strong>' + esc(a.dias) + '</strong> · ' + esc(a.hora) + '</span></li>' +
+          '<li>' + ico('pin') + '<span>' + esc(a.lugar) + '</span></li>' +
+          (a.gente ? '<li>' + ico('users') + '<span>Suelen sumarse unas ' + a.gente + ' personas</span></li>' : '') +
+          '</ul><div class="who"><p class="who-t">Consultas con</p>' + a.who.map(function (p) { return personHtml(p); }).join('') + '</div>';
+      }).join('') +
+      '<button type="button" class="btn ghost sm" id="change">' + ico('back') + ' Cambiar actividades</button>';
     $$('[data-grupos]').forEach(function (el) {
-      var on = el.getAttribute('data-grupos').split(' ').indexOf(a.grupo) > -1;
+      var on = el.getAttribute('data-grupos').split(' ').some(function (g) { return grupos[g]; });
       el.hidden = !on;
       $$('input,textarea', el).forEach(function (i) { i.disabled = !on; });
     });
     $('#paso1').hidden = true; $('#paso2').hidden = false; $('#paso3').hidden = true;
     setStep(2);
   }
+  /* entrada directa desde el botón "Inscribirme" de una actividad o desde un enlace */
+  function select(id) {
+    if (!byId[id]) return;
+    $$('input[name=actividad]').forEach(function (r) { r.checked = (r.value === id); });
+    actualizarSeleccion(); mostrar();
+  }
 
-  $$('input[name=actividad]').forEach(function (r) {
-    r.addEventListener('change', function () { select(r.value); scrollTo($('#stepper')); });
+  $$('input[name=actividad]').forEach(function (r) { r.addEventListener('change', actualizarSeleccion); });
+  $('#seguir').addEventListener('click', function () {
+    if (!sel.length) { var e = $('#err-act'); e.textContent = 'Elegí al menos una actividad.'; e.hidden = false; return; }
+    mostrar(); scrollTo($('#stepper'));
   });
 
   /* ---------- validación ---------- */
@@ -949,21 +976,22 @@ var ACT = [{"id": "santa-catalina", "sec": "barrios", "grupo": "manual", "icon":
   /* ---------- armado del mensaje ---------- */
   function val(id) { var i = $('#f').elements[id]; return (i && !i.disabled) ? i.value.trim() : ''; }
   function buildLines() {
-    var a = current, L = [];
-    L.push(['Actividad', a.titulo]);
-    L.push(['Día y hora', a.dias + ' · ' + a.hora]);
-    L.push(['Lugar', a.lugar]);
+    var L = [], g = {};
+    sel.forEach(function (a) { g[a.grupo] = true; });
+    sel.forEach(function (a, i) {
+      L.push([sel.length > 1 ? 'Actividad ' + (i + 1) : 'Actividad', a.titulo + ' · ' + a.dias + ', ' + a.hora + ' · ' + a.lugar]);
+    });
     L.push(['Nombre y apellido', val('nombre')]);
     L.push(['DNI', digits(val('dni'))]);
     L.push(['Edad', digits(val('edad'))]);
     L.push(['Teléfono', val('telefono')]);
     L.push(['Barrio o domicilio', val('barrio')]);
-    if (a.grupo === 'fisica') {
+    if (g.fisica) {
       L.push(['Contacto de emergencia', val('emerg_nombre') + ' (' + val('emerg_tel') + ')']);
       if (val('salud')) L.push(['Salud', val('salud')]);
     }
-    if (a.grupo === 'manual' && val('interes')) L.push(['Quiero hacer o aprender', val('interes')]);
-    if (a.grupo === 'hogar' && val('hogar_msg')) L.push(['Cómo quiero participar', val('hogar_msg')]);
+    if (g.manual && val('interes')) L.push(['Quiero hacer o aprender', val('interes')]);
+    if (g.hogar && val('hogar_msg')) L.push(['Cómo quiero participar', val('hogar_msg')]);
     L.push(['Avisos de jornadas especiales', $('#avisos').checked ? 'Sí' : 'No']);
     return L;
   }
@@ -975,36 +1003,22 @@ var ACT = [{"id": "santa-catalina", "sec": "barrios", "grupo": "manual", "icon":
 
   $('#f').addEventListener('submit', function (ev) {
     ev.preventDefault();
-    if (!current) { var e = $('#err-act'); e.textContent = 'Elegí primero una actividad.'; e.hidden = false; scrollTo($('#paso1')); return; }
+    if (!sel.length) { var e = $('#err-act'); e.textContent = 'Elegí al menos una actividad.'; e.hidden = false; scrollTo($('#paso1')); return; }
     var bad = validate();
     if (bad.length) { bad[0].focus(); say('Revisá los datos marcados en rojo.'); return; }
     var L = buildLines(), text = buildText(L); last = text;
-    guardarEnHoja(text);
+    guardarEnHoja();
     $('#sum').innerHTML = L.map(function (r) { return '<dt>' + esc(r[0]) + '</dt><dd>' + esc(r[1]) + '</dd>'; }).join('');
-    $('#msg').value = text;
-    $('#send').innerHTML = current.who.map(function (p, i) {
-      return '<a class="btn' + (i ? ' ghost' : '') + '" href="' + waHref(p.tel, text) + '" target="_blank" rel="noopener">' +
-        ico('chat') + ' Enviar por WhatsApp a ' + esc(p.nombre) + ' <span class="sr">(' + esc(p.rol) + ')</span></a>';
-    }).join('');
+    $('#contactos').innerHTML = sel.map(function (a) { return '<p class="who-t">' + esc(a.titulo) + '</p>' + a.who.map(function (p) { return personHtml(p, ''); }).join(''); }).join('');
     $('#paso2').hidden = true; $('#paso1').hidden = true; $('#paso3').hidden = false;
     setStep(3);
     var h = $('#t3'); scrollTo($('#paso3')); h.focus({ preventScroll: true });
   });
 
-  $('#copy-msg').addEventListener('click', function () {
-    var m = $('#msg');
-    function fallback() { m.focus(); m.select(); say('Seleccioná el texto y copialo a mano.'); }
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(m.value).then(function () { say('Inscripción copiada.'); }, function () { if (legacy(m.value)) say('Inscripción copiada.'); else fallback(); });
-    } else if (legacy(m.value)) { say('Inscripción copiada.'); } else { fallback(); }
-  });
-  $('#edit').addEventListener('click', function () {
-    $('#paso3').hidden = true; $('#paso1').hidden = true; $('#paso2').hidden = false; setStep(2); scrollTo($('#stepper'));
-  });
   $('#again').addEventListener('click', function () {
     $('#paso3').hidden = true; $('#paso2').hidden = true; $('#paso1').hidden = false;
     $$('input[name=actividad]').forEach(function (r) { r.checked = false; });
-    current = null; setStep(1); scrollTo($('#paso1'));
+    sel = []; actualizarSeleccion(); setStep(1); scrollTo($('#paso1'));
   });
 
   document.addEventListener('click', function (ev) {
