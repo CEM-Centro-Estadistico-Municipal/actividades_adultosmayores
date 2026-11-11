@@ -135,7 +135,6 @@ select:focus,input[type=password]:focus,input[type=date]:focus{outline:3px solid
     <button type="button" class="back" data-ir="inicio">← Volver al inicio</button>
     <p class="demo" id="demo" hidden><strong>Vista de prueba.</strong> Estos nombres son de ejemplo y no se guarda nada.</p>
     <div class="card">
-      <div class="field"><label for="a-clave">Clave de profesores</label><input type="password" id="a-clave" autocomplete="off"></div>
       <div class="field"><label for="a-act">Actividad</label><select id="a-act"></select></div>
       <div class="field" style="margin-bottom:0"><label for="a-fecha">Día</label><input type="date" id="a-fecha"></div>
     </div>
@@ -271,7 +270,7 @@ var MODO_PRUEBA = false;
   }
   $$('[data-ir]').forEach(function(b){b.addEventListener('click',function(){ir(b.getAttribute('data-ir'))})});
 
-  var gente=[], sending=false, claveOk=false;
+  var gente=[], sending=false;
   var EJEMPLO=[{dni:'12345678',nombre:'María Elena Gómez'},{dni:'14876321',nombre:'Rosa Benítez'},{dni:'11222333',nombre:'Juan Carlos Acosta'},{dni:'16543210',nombre:'Ana Lucía Romero'},{dni:'13987654',nombre:'Hugo Antonio Silva'}];
   function hoy(){var d=new Date();return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2)}
   $('#a-act').innerHTML=ACT.map(function(a){return '<option value="'+a.id+'">'+esc(a.titulo)+'</option>'}).join('');
@@ -295,15 +294,12 @@ var MODO_PRUEBA = false;
   function cargar(){
     $('#a-ok').hidden=true; $('#a-fallo').hidden=true; $('#a-todos').textContent='Marcar a todos';
     if(MODO_PRUEBA){gente=EJEMPLO.map(function(p){return {dni:p.dni,nombre:p.nombre,presente:false}});pintar();return}
-    claveOk=false;
-    if(!$('#a-clave').value.trim()){gente=[];pintar();$('#a-vacio').hidden=true;$('#a-fallo').textContent='Escribí la clave de profesores para ver la lista.';$('#a-fallo').hidden=false;return}
-    fetch(ENDPOINT+'?accion=lista&actividad_id='+encodeURIComponent($('#a-act').value)+'&clave='+encodeURIComponent($('#a-clave').value.trim()))
+    fetch(ENDPOINT+'?accion=lista&actividad_id='+encodeURIComponent($('#a-act').value))
       .then(function(r){return r.json()})
-      .then(function(d){if(d.error)throw new Error(d.error);claveOk=true;gente=d.inscriptos.map(function(p){return {dni:p.dni,nombre:p.nombre,presente:false}});pintar()})
+      .then(function(d){if(d.error)throw new Error(d.error);gente=d.inscriptos.map(function(p){return {dni:p.dni,nombre:p.nombre,presente:false}});pintar()})
       .catch(function(e){gente=[];pintar();$('#a-vacio').hidden=true;$('#a-fallo').textContent=(e.message&&e.message!=='Failed to fetch')?e.message:'No se pudo cargar la lista. Revisá tu conexión.';$('#a-fallo').hidden=false});
   }
   $('#a-act').addEventListener('change',cargar);
-  $('#a-clave').addEventListener('change',cargar);
 
   $('#a-agregar').addEventListener('click',function(){
     var n=$('#n-nombre').value.trim(), d=digits($('#n-dni').value), er=$('#n-err');
@@ -317,13 +313,12 @@ var MODO_PRUEBA = false;
     if(sending)return;
     var ok=$('#a-ok'), no=$('#a-fallo'); ok.hidden=true; no.hidden=true;
     if(!$('#a-fecha').value){no.textContent='Elegí el día.';no.hidden=false;return}
-    if(!MODO_PRUEBA&&!claveOk){no.textContent='Escribí la clave de profesores y esperá a que cargue la lista.';no.hidden=false;return}
     if(!gente.length){no.textContent='No hay nadie en la lista para guardar.';no.hidden=false;return}
     var a=ACT.filter(function(x){return x.id===$('#a-act').value})[0], n=gente.filter(function(p){return p.presente}).length;
     function listo(){ok.textContent='Asistencia guardada: '+n+' presentes de '+gente.length+'.';ok.hidden=false}
     if(MODO_PRUEBA){listo();return}
     var d=new URLSearchParams();
-    d.set('accion','asistencia'); d.set('clave',$('#a-clave').value.trim()); d.set('fecha',$('#a-fecha').value);
+    d.set('accion','asistencia'); d.set('fecha',$('#a-fecha').value);
     d.set('actividad_id',a.id); d.set('actividad',a.titulo);
     d.set('registros',JSON.stringify(gente.map(function(p){return {dni:p.dni,nombre:p.nombre,presente:p.presente?'Sí':'No'}})));
     sending=true; var b=$('#a-guardar'); b.disabled=true; b.textContent='Guardando…';
