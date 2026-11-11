@@ -54,13 +54,43 @@ input:focus,textarea:focus{outline:3px solid var(--focus);outline-offset:1px;bor
 #hecho{text-align:center;padding:36px 20px;background:var(--card);border:1px solid var(--border);border-radius:18px}
 #hecho h2{color:var(--ok)}
 .info-link{margin:-14px 0 24px}.info-link a{display:inline-flex;align-items:center;min-height:48px;font-weight:700;color:var(--brand-press);text-underline-offset:4px}
+
+input[type=password],input[type=date],select{width:100%;min-height:54px;padding:12px 14px;font:inherit;color:var(--text);background:var(--card);border:2px solid var(--border-strong);border-radius:12px}
+select:focus,input[type=password]:focus,input[type=date]:focus{outline:3px solid var(--focus);outline-offset:1px;border-color:var(--brand)}
+.menu{display:grid;gap:14px}
+.menu-btn{display:grid;gap:4px;width:100%;text-align:left;padding:20px 18px;font:inherit;color:var(--body);background:var(--card);border:2px solid var(--border);border-radius:16px;cursor:pointer;transition:border-color .14s,background .14s}
+.menu-btn:hover{border-color:var(--brand);background:var(--brand-soft)}
+.menu-btn strong{font-size:22px;font-weight:800;color:var(--text)}.menu-btn span{color:var(--muted);font-size:16px}
+.back{display:inline-flex;align-items:center;min-height:48px;margin:0 0 10px;padding:0;background:none;border:0;font:700 17px var(--font);color:var(--brand-press);text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+.card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:22px 20px;margin-bottom:20px}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 12px;flex-wrap:wrap}
+.count{margin:0;font-weight:800;color:var(--text)}.count b{color:var(--ok)}
+.list{display:grid;gap:10px}
+.asis .tile-body{display:flex;align-items:center;gap:14px}
+.asis .tile input:checked+.tile-body{border-color:var(--ok);background:var(--ok-soft);box-shadow:inset 6px 0 0 var(--ok)}
+.box{flex:none;width:30px;height:30px;border:2px solid var(--border-strong);border-radius:8px;display:grid;place-items:center;font-weight:800;color:transparent}
+.asis .tile input:checked+.tile-body .box{background:var(--ok);border-color:var(--ok);color:#fff}
+.who{display:grid;line-height:1.25}.who strong{color:var(--text)}.who span{font-size:15px;color:var(--muted)}
+.extra{margin-left:auto;font-size:14px;font-weight:700;color:var(--muted)}
+.mini{width:auto;min-height:48px;padding:0 20px;font-size:16px;margin-top:0}
+.add{display:grid;gap:12px;margin-top:16px;padding-top:16px;border-top:1px solid var(--border)}
+.empty{margin:0;padding:18px;text-align:center;color:var(--muted);border:2px dashed var(--border-strong);border-radius:14px}
+.demo{margin:0 0 20px;padding:12px 14px;background:var(--tint);border-radius:12px;font-size:15px}
+.msg.ok{margin-bottom:0}
 </style></head>
 <body>
 <main>
-  <h1>Inscripción a actividades</h1>
-  <p class="lede">Elegí tu actividad y completá tus datos.</p>
+  <h1 id="titulo">Actividades de Adultos Mayores</h1>
+  <p class="lede" id="bajada">¿Qué querés hacer?</p>
   <p class="info-link"><a href="informativo.html">Ver agenda e información de las actividades</a></p>
 
+  <div id="inicio" class="menu">
+    <button type="button" class="menu-btn" data-ir="insc"><strong>Inscribir a alguien</strong><span>Anotar a una persona en una actividad.</span></button>
+    <button type="button" class="menu-btn" data-ir="asis"><strong>Registrar asistencia</strong><span>Marcar quiénes vinieron a la actividad de hoy.</span></button>
+  </div>
+
+  <div id="vista-insc" hidden>
+  <button type="button" class="back" data-ir="inicio">← Volver al inicio</button>
   <div id="form-wrap">
   <fieldset id="pick">
     <legend>1. ¿A qué actividad querés inscribirte?</legend>
@@ -99,12 +129,39 @@ input:focus,textarea:focus{outline:3px solid var(--focus);outline-offset:1px;bor
     <p id="hecho-txt"></p>
     <button class="btn ghost" type="button" id="otra">Inscribirme en otra actividad</button>
   </section>
+  </div>
+
+  <section id="vista-asis" class="asis" hidden>
+    <button type="button" class="back" data-ir="inicio">← Volver al inicio</button>
+    <p class="demo" id="demo" hidden><strong>Vista de prueba.</strong> Estos nombres son de ejemplo y no se guarda nada.</p>
+    <div class="card">
+      <div class="field"><label for="a-clave">Clave de profesores</label><input type="password" id="a-clave" autocomplete="off"></div>
+      <div class="field"><label for="a-act">Actividad</label><select id="a-act"></select></div>
+      <div class="field" style="margin-bottom:0"><label for="a-fecha">Día</label><input type="date" id="a-fecha"></div>
+    </div>
+    <div class="card">
+      <h2>Inscriptos</h2>
+      <div class="bar"><p class="count" id="a-cuenta" aria-live="polite"></p><button type="button" class="btn ghost mini" id="a-todos">Marcar a todos</button></div>
+      <div class="list" id="a-lista"></div>
+      <p class="empty" id="a-vacio" hidden>Todavía no hay inscriptos en esta actividad.</p>
+      <div class="add">
+        <h2 style="font-size:18px;margin:0">¿Vino alguien que no estaba anotado?</h2>
+        <div class="field" style="margin:0"><label for="n-nombre">Nombre y apellido</label><input type="text" id="n-nombre" autocomplete="off"></div>
+        <div class="field" style="margin:0"><label for="n-dni">DNI</label><span class="hint">Solo números, sin puntos.</span><input type="text" id="n-dni" inputmode="numeric" autocomplete="off"></div>
+        <button type="button" class="btn ghost mini" id="a-agregar">Agregar a la lista</button>
+        <p class="err" id="n-err" role="alert" hidden></p>
+      </div>
+    </div>
+    <button class="btn" type="button" id="a-guardar">Guardar asistencia</button>
+    <div class="msg ok" id="a-ok" role="status" hidden></div>
+    <div class="msg no" id="a-fallo" role="alert" hidden></div>
+  </section>
 </main>
 
 <script>
 /* ========== CONFIGURACIÓN ========== */
-// Pegá acá la URL de tu Apps Script publicado como "Aplicación web" (la MISMA que usa el otro formulario).
-var ENDPOINT = 'https://script.google.com/macros/s/AKfycbxY_D2Fr42v49j3oaHivFFy2UMY6XBT7mV1XZvrchH_7GDmrt4XV5EysHUlVeysS095JQ/exec';
+// URL del Apps Script publicado como "Aplicación web" (el de la planilla de Adultos Mayores).
+var ENDPOINT = 'https://script.google.com/macros/s/AKfycbxo2Huz9R6mmgk827AXMwJbZhGJtTvJ3XTLrM1zXz6JZyCdaymvx94p5TeLqMYdG0aeJg/exec';
 var NOMBRE_FORMULARIO = 'inscripcion'; // columna que distingue de qué formulario viene cada fila
 
 /* Mismas actividades que el informativo */
@@ -192,6 +249,87 @@ var ACT = [
   $('#otra').addEventListener('click',function(){
     f.reset(); current=null; $$('input[name=actividad]').forEach(function(r){r.checked=false});
     $('#datos').hidden=true; $('#hecho').hidden=true; $('#form-wrap').hidden=false; window.scrollTo(0,0);
+  });
+})();
+</script>
+
+<script>
+/* ========== NAVEGACIÓN Y ASISTENCIA ========== */
+// true = datos de ejemplo, no envía nada. false = lee y guarda en la planilla.
+var MODO_PRUEBA = false;
+(function(){
+  var $=function(s){return document.querySelector(s)}, $$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
+  function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML}
+  function digits(s){return String(s).replace(/\D/g,'')}
+  var T={inicio:['Actividades de Adultos Mayores','¿Qué querés hacer?'],insc:['Inscripción a actividades','Elegí tu actividad y completá tus datos.'],asis:['Registrar asistencia','Elegí la actividad y el día, y marcá quiénes vinieron.']};
+  var V={inicio:'inicio',insc:'vista-insc',asis:'vista-asis'};
+  function ir(v){
+    Object.keys(V).forEach(function(k){$('#'+V[k]).hidden=(k!==v)});
+    $('#titulo').textContent=T[v][0]; $('#bajada').textContent=T[v][1];
+    $('.info-link').hidden=(v==='asis'); window.scrollTo(0,0);
+    if(v==='asis') cargar();
+  }
+  $$('[data-ir]').forEach(function(b){b.addEventListener('click',function(){ir(b.getAttribute('data-ir'))})});
+
+  var gente=[], sending=false, claveOk=false;
+  var EJEMPLO=[{dni:'12345678',nombre:'María Elena Gómez'},{dni:'14876321',nombre:'Rosa Benítez'},{dni:'11222333',nombre:'Juan Carlos Acosta'},{dni:'16543210',nombre:'Ana Lucía Romero'},{dni:'13987654',nombre:'Hugo Antonio Silva'}];
+  function hoy(){var d=new Date();return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2)}
+  $('#a-act').innerHTML=ACT.map(function(a){return '<option value="'+a.id+'">'+esc(a.titulo)+'</option>'}).join('');
+  $('#a-fecha').value=hoy();
+  if(MODO_PRUEBA) $('#demo').hidden=false;
+
+  function contar(){var n=gente.filter(function(p){return p.presente}).length;$('#a-cuenta').innerHTML='Presentes: <b>'+n+'</b> de '+gente.length}
+  function pintar(){
+    $('#a-vacio').hidden=gente.length>0;
+    $('#a-lista').innerHTML=gente.map(function(p,i){
+      return '<label class="tile"><input type="checkbox" data-i="'+i+'"'+(p.presente?' checked':'')+'><span class="tile-body"><span class="box" aria-hidden="true">✓</span><span class="who"><strong>'+esc(p.nombre)+'</strong><span>DNI '+esc(p.dni)+'</span></span>'+(p.extra?'<span class="extra">No inscripto</span>':'')+'</span></label>';
+    }).join('');
+    contar();
+  }
+  $('#a-lista').addEventListener('change',function(e){var i=e.target.getAttribute('data-i');if(i===null)return;gente[i].presente=e.target.checked;contar();$('#a-ok').hidden=true});
+  $('#a-todos').addEventListener('click',function(){
+    var todos=gente.every(function(p){return p.presente});
+    gente.forEach(function(p){p.presente=!todos}); pintar(); $('#a-todos').textContent=todos?'Marcar a todos':'Quitar todas las marcas';
+  });
+
+  function cargar(){
+    $('#a-ok').hidden=true; $('#a-fallo').hidden=true; $('#a-todos').textContent='Marcar a todos';
+    if(MODO_PRUEBA){gente=EJEMPLO.map(function(p){return {dni:p.dni,nombre:p.nombre,presente:false}});pintar();return}
+    claveOk=false;
+    if(!$('#a-clave').value.trim()){gente=[];pintar();$('#a-vacio').hidden=true;$('#a-fallo').textContent='Escribí la clave de profesores para ver la lista.';$('#a-fallo').hidden=false;return}
+    fetch(ENDPOINT+'?accion=lista&actividad_id='+encodeURIComponent($('#a-act').value)+'&clave='+encodeURIComponent($('#a-clave').value.trim()))
+      .then(function(r){return r.json()})
+      .then(function(d){if(d.error)throw new Error(d.error);claveOk=true;gente=d.inscriptos.map(function(p){return {dni:p.dni,nombre:p.nombre,presente:false}});pintar()})
+      .catch(function(e){gente=[];pintar();$('#a-vacio').hidden=true;$('#a-fallo').textContent=(e.message&&e.message!=='Failed to fetch')?e.message:'No se pudo cargar la lista. Revisá tu conexión.';$('#a-fallo').hidden=false});
+  }
+  $('#a-act').addEventListener('change',cargar);
+  $('#a-clave').addEventListener('change',cargar);
+
+  $('#a-agregar').addEventListener('click',function(){
+    var n=$('#n-nombre').value.trim(), d=digits($('#n-dni').value), er=$('#n-err');
+    if(n.length<3||!/\s/.test(n)){er.textContent='Escribí nombre y apellido.';er.hidden=false;return}
+    if(d.length<6||d.length>9){er.textContent='Escribí el DNI, solo números.';er.hidden=false;return}
+    if(gente.some(function(p){return p.dni===d})){er.textContent='Esa persona ya está en la lista.';er.hidden=false;return}
+    er.hidden=true; gente.push({dni:d,nombre:n,presente:true,extra:true}); pintar(); $('#n-nombre').value=''; $('#n-dni').value='';
+  });
+
+  $('#a-guardar').addEventListener('click',function(){
+    if(sending)return;
+    var ok=$('#a-ok'), no=$('#a-fallo'); ok.hidden=true; no.hidden=true;
+    if(!$('#a-fecha').value){no.textContent='Elegí el día.';no.hidden=false;return}
+    if(!MODO_PRUEBA&&!claveOk){no.textContent='Escribí la clave de profesores y esperá a que cargue la lista.';no.hidden=false;return}
+    if(!gente.length){no.textContent='No hay nadie en la lista para guardar.';no.hidden=false;return}
+    var a=ACT.filter(function(x){return x.id===$('#a-act').value})[0], n=gente.filter(function(p){return p.presente}).length;
+    function listo(){ok.textContent='Asistencia guardada: '+n+' presentes de '+gente.length+'.';ok.hidden=false}
+    if(MODO_PRUEBA){listo();return}
+    var d=new URLSearchParams();
+    d.set('accion','asistencia'); d.set('clave',$('#a-clave').value.trim()); d.set('fecha',$('#a-fecha').value);
+    d.set('actividad_id',a.id); d.set('actividad',a.titulo);
+    d.set('registros',JSON.stringify(gente.map(function(p){return {dni:p.dni,nombre:p.nombre,presente:p.presente?'Sí':'No'}})));
+    sending=true; var b=$('#a-guardar'); b.disabled=true; b.textContent='Guardando…';
+    fetch(ENDPOINT,{method:'POST',mode:'no-cors',body:d}).then(listo)
+      .catch(function(){no.textContent='No se pudo guardar. Revisá tu conexión e intentá de nuevo.';no.hidden=false})
+      .then(function(){sending=false;b.disabled=false;b.textContent='Guardar asistencia'});
   });
 })();
 </script>
